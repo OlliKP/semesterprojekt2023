@@ -3,15 +3,42 @@
 
 /** Ionic CSS Variables **/
 :root {
+  // Team Powerfuls fonte
+  @font-face {
+    font-family: InterMedium;
+    src: url("../assets/fonts/Inter-Medium.ttf");
+  }
+  @font-face {
+    font-family: InterRegular;
+    src: url("../assets/fonts/Inter-Regular.ttf");
+  }
+  @font-face {
+    font-family: InterSemiBold;
+    src: url("../assets/fonts/Inter-SemiBold.ttf");
+  }
+
+  @font-face {
+    font-family: RalewayLightItalic;
+    src: url("../assets/fonts/Raleway-LightItalic.ttf");
+  }
+  @font-face {
+    font-family: RalewayMediumItalic;
+    src: url("../assets/fonts/Raleway-MediumItalic.ttf");
+  }
+  @font-face {
+    font-family: RalewaySemiBold;
+    src: url("../assets/fonts/Raleway-SemiBold.ttf");
+  }
+
   // Team Powerfuls farver
-   --dark-pink: #FB867C;
-   --light-pink: #FFAA92;
-   --white: #FFFFFF;
-   --darkest-blue: #234352;
-   --dark-blue: #356277;
-   --mid-blue: #3A949B;
-   --light-blue: #A4E5EA;
-   --light-grey: #A8A8A8;
+  --dark-pink: #fb867c;
+  --light-pink: #ffaa92;
+  --white: #ffffff;
+  --darkest-blue: #234352;
+  --dark-blue: #356277;
+  --mid-blue: #3a949b;
+  --light-blue: #a4e5ea;
+  --light-grey: #a8a8a8;
 
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -94,65 +121,65 @@
 
   body {
     --ion-color-primary: #428cff;
-    --ion-color-primary-rgb: 66,140,255;
+    --ion-color-primary-rgb: 66, 140, 255;
     --ion-color-primary-contrast: #ffffff;
-    --ion-color-primary-contrast-rgb: 255,255,255;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
     --ion-color-primary-shade: #3a7be0;
     --ion-color-primary-tint: #5598ff;
 
     --ion-color-secondary: #50c8ff;
-    --ion-color-secondary-rgb: 80,200,255;
+    --ion-color-secondary-rgb: 80, 200, 255;
     --ion-color-secondary-contrast: #ffffff;
-    --ion-color-secondary-contrast-rgb: 255,255,255;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
     --ion-color-secondary-shade: #46b0e0;
     --ion-color-secondary-tint: #62ceff;
 
     --ion-color-tertiary: #6a64ff;
-    --ion-color-tertiary-rgb: 106,100,255;
+    --ion-color-tertiary-rgb: 106, 100, 255;
     --ion-color-tertiary-contrast: #ffffff;
-    --ion-color-tertiary-contrast-rgb: 255,255,255;
+    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
     --ion-color-tertiary-shade: #5d58e0;
     --ion-color-tertiary-tint: #7974ff;
 
     --ion-color-success: #2fdf75;
-    --ion-color-success-rgb: 47,223,117;
+    --ion-color-success-rgb: 47, 223, 117;
     --ion-color-success-contrast: #000000;
-    --ion-color-success-contrast-rgb: 0,0,0;
+    --ion-color-success-contrast-rgb: 0, 0, 0;
     --ion-color-success-shade: #29c467;
     --ion-color-success-tint: #44e283;
 
     --ion-color-warning: #ffd534;
-    --ion-color-warning-rgb: 255,213,52;
+    --ion-color-warning-rgb: 255, 213, 52;
     --ion-color-warning-contrast: #000000;
-    --ion-color-warning-contrast-rgb: 0,0,0;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
     --ion-color-warning-shade: #e0bb2e;
     --ion-color-warning-tint: #ffd948;
 
     --ion-color-danger: #ff4961;
-    --ion-color-danger-rgb: 255,73,97;
+    --ion-color-danger-rgb: 255, 73, 97;
     --ion-color-danger-contrast: #ffffff;
-    --ion-color-danger-contrast-rgb: 255,255,255;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
     --ion-color-danger-shade: #e04055;
     --ion-color-danger-tint: #ff5b71;
 
     --ion-color-dark: #f4f5f8;
-    --ion-color-dark-rgb: 244,245,248;
+    --ion-color-dark-rgb: 244, 245, 248;
     --ion-color-dark-contrast: #000000;
-    --ion-color-dark-contrast-rgb: 0,0,0;
+    --ion-color-dark-contrast-rgb: 0, 0, 0;
     --ion-color-dark-shade: #d7d8da;
     --ion-color-dark-tint: #f5f6f9;
 
     --ion-color-medium: #989aa2;
-    --ion-color-medium-rgb: 152,154,162;
+    --ion-color-medium-rgb: 152, 154, 162;
     --ion-color-medium-contrast: #000000;
-    --ion-color-medium-contrast-rgb: 0,0,0;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
     --ion-color-medium-shade: #86888f;
     --ion-color-medium-tint: #a2a4ab;
 
     --ion-color-light: #222428;
-    --ion-color-light-rgb: 34,36,40;
+    --ion-color-light-rgb: 34, 36, 40;
     --ion-color-light-contrast: #ffffff;
-    --ion-color-light-contrast-rgb: 255,255,255;
+    --ion-color-light-contrast-rgb: 255, 255, 255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
   }
@@ -199,7 +226,6 @@
     --ion-toolbar-background: var(--ion-color-step-150);
     --ion-toolbar-border-color: var(--ion-color-step-250);
   }
-
 
   /*
    * Material Design Dark Theme
