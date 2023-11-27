@@ -1,9 +1,30 @@
 .mockup-img {
     position: absolute;
     opacity: 0.5;
-    z-index: 2;
+    z-index: 1;
+}
+
+ion-header{
+    z-index: -1;
 }
 
 .header-img {
-    margin-top: -1.5rem;
+    position: relative;
+    top: -1.5rem;
+}
+
+h1 {
+    text-align: center;
+    margin-top: -3.2rem;
+    font-family: RalewaySemiBold;
+    font-size: 1.25rem;
+    z-index: 2;
+}
+
+hr {
+    width: 85vw;
+    height: 5px;
+    color: white;
+    z-index: 2;
+    display: block;
 }
