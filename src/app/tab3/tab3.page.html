@@ -12,17 +12,104 @@
 </ion-toolbar>
 
 <ion-content color="secondary" [fullscreen]="true">
-  <div class="event-container">
-    <div class="event-img-text">
-      <div class="event-img">
+  <ion-accordion-group class="acc-group" expand="inset">
+    <ion-accordion value="Titel" class="acc" >
+      <ion-item class="acc-item" slot="header" color="light">
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
+        <div class="text-item-div">
+          <h2 class="titel-item">Brætspil og rødvin</h2>
+          <h3 class="navn-item">Maria Christiansen</h3>
+          <h4 class="dato-item">d. 25/11-23</h4>
+        </div>
+        <div class="buddys-figurer">
+          <h5 class="antal-item">2-4</h5>
+          <img
+            src="../../assets/grafik/buddys-figurer.svg"
+            alt="Små buddys figurer"
+          />
+        </div>
+      </ion-item>
+      <div class="div-content" slot="content">
+        <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+        <p class="beskrivelse-text">
+          Hej med jer. Jeg søger nogle buddys som har lyst til at starte en
+          Dungeons & Dragons kampagne sammen med mig. Jeg er selv 28 år, og
+          foretrækker at finde nogle jævnaldrende, som ville være frisk på at
+          spille i et par timer hver uge.
+        </p>
+        <div class="text-and-icon-container">
+          <div>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Lokation:</b> Køge eller online
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Kategori:</b> Seværdigheder
+            </p>
+            <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> 2-4</p>
+          </div>
+          <div class="acc-icons-container">
+            <ion-icon class="acc-icon" name="ellipsis-horizontal"></ion-icon>
+            <ion-icon class="acc-icon" name="trash"></ion-icon>
+          </div>
+        </div>
       </div>
-      <div class="event-text">
-        <h2>Søger en DnD Gruppe</h2>
-        <p>Oliver Krumbæk Perving</p>
+    </ion-accordion>
+  </ion-accordion-group>
+
+
+
+
+
+
+  <ion-accordion-group class="acc-group" expand="inset">
+    <ion-accordion value="Titel1" class="radius">
+      <ion-item class="acc-item" slot="header" color="light">
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
+        <div class="text-item-div">
+          <h2 class="titel-item">Brætspil og rødvin</h2>
+          <h3 class="navn-item">Maria Christiansen</h3>
+          <h4 class="dato-item">d. 25/11-23</h4>
+        </div>
+        <div class="buddys-figurer">
+          <h5 class="antal-item">2-4</h5>
+          <img
+            src="../../assets/grafik/buddys-figurer.svg"
+            alt="Små buddys figurer"
+          />
+        </div>
+      </ion-item>
+      <div class="div-content" slot="content">
+        <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+        <p class="beskrivelse-text">
+          Hej med jer. Jeg søger nogle buddys som har lyst til at starte en
+          Dungeons & Dragons kampagne sammen med mig. Jeg er selv 28 år, og
+          foretrækker at finde nogle jævnaldrende, som ville være frisk på at
+          spille i et par timer hver uge.
+        </p>
+        <div class="text-and-icon-container">
+          <div>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Lokation:</b> Køge eller online
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Kategori:</b> Seværdigheder
+            </p>
+            <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> 2-4</p>
+          </div>
+          <div class="acc-icons-container">
+            <ion-icon class="acc-icon" name="ellipsis-horizontal"></ion-icon>
+            <ion-icon class="acc-icon" name="trash"></ion-icon>
+          </div>
+        </div>
       </div>
-    </div>
-    <div>
-      
-    </div>
-  </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
