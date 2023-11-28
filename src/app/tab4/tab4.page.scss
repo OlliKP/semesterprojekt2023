@@ -34,12 +34,37 @@
     --color: #fff;
   }
 
-  /* .center {
-    display: inline-block;
-    width: 100px;
-  } */
+  .cardStr {
+    width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .logUdKnap {
     display: flex;
     justify-content: center;
+  }
+
+  ion-toolbar,
+  ion-content,
+  ion-card,
+  ion-card-content,
+  ion-list,
+  ion-item {
+    --background: var(--ion-color-secondary);
+  }
+
+  ion-list,
+  ion-content,
+  ion-card-content,
+  ion-card,
+  ion-item,
+  img {
+    border: none;
+    box-shadow: none;
+  }
+
+  div {
+    background: var(--ion-color-secondary);
+    border: none;
   }

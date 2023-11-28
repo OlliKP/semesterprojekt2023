@@ -1,4 +1,5 @@
 <ion-header collapse="condense">
+  
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -6,12 +7,26 @@
   />
 </ion-header>
 
-<ion-toolbar color="secondary">
+<ion-toolbar>
+
+  <ion-buttons color="secondary" slot="secondary">
+    <ion-button>
+      <ion-icon name="arrow-undo" color="primary"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-buttons color="secondary" slot="primary">
+    <ion-button>
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
   <h1>Min profil</h1>
+
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
-  <ion-card>
+<ion-content [fullscreen]="true">
+  <ion-card class="cardStr">
 
       <ion-card-content>
         <ion-list lines="none">
