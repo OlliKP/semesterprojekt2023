@@ -29,7 +29,17 @@
     margin-left: auto;
     margin-right: auto;
   }
-  
-  /* .buttonClr {
-    background: var(--dark-pink);
+
+  .btn {
+    --color: #fff;
+  }
+
+  /* .center {
+    display: inline-block;
+    width: 100px;
   } */
+
+  .logUdKnap {
+    display: flex;
+    justify-content: center;
+  }
