@@ -1,14 +1,45 @@
-body {
+body, ion-card, .bg-img {
     background-color: var(--ion-color-success);
+    box-shadow: none;
 }
 
 .hd-img {
     width: 80%;
-    height: 40vh;
-    margin: auto;
+    height: 35vh;
+    margin-top: -3rem;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
+    z-index: -1;
 }
 
-.bg-img {
-    background-color: var(--ion-color-success);
+h1 {
+    text-align: center;
+    margin-top: -3rem;
+    margin-bottom: 0;
+    font-family: RalewaySemiBold;
+    font-size: 3.8rem;
+    color: #000;
+  }
+
+.logInd {
+    width: 100%;
+    margin: auto;
 }
+
+.kodeInput, .mailInput {
+    border-radius: 50px;
+}
+
+ion-input, .btn, .eller, .signUp {
+    color: #fff;
+  }
+
+.kodeInput {
+    margin-top: 1em;
+}
+
+.logIndKnap, .eller, .signUp {
+    display: flex;
+    justify-content: center;
+  }
