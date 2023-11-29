@@ -39,31 +39,17 @@ export class Tab3Page implements OnInit {
       this.events = data.map((e) => {
         return {
           eventId: e.payload.doc.id,
-          title: e.payload.doc.data()['Titel'],
-          profilId: e.payload.doc.data()['Profil_ID'],
-          date: e.payload.doc.data()['Dato'],
-          description: e.payload.doc.data()['Beskrivelse'],
-          location: e.payload.doc.data()['Lokation'],
-          category: e.payload.doc.data()['Kategori'],
-          minPersons: e.payload.doc.data()['Min_personer'],
-          maxPersons: e.payload.doc.data()['Max_personer'],
+          title: e.payload.doc.data()['title'],
+          profilId: e.payload.doc.data()['profileId'],
+          date: e.payload.doc.data()['date'],
+          description: e.payload.doc.data()['description'],
+          location: e.payload.doc.data()['location'],
+          category: e.payload.doc.data()['category'],
+          minPersons: e.payload.doc.data()['minPersons'],
+          maxPersons: e.payload.doc.data()['maxPersons'],
         };
       });
     });
-
-    // const event = {
-    //   eventId: 1,
-    //   title: 'Brætspil',
-    //   profilId: 2,
-    //   date: '22-12-2023',
-    //   description:
-    //     ' Hej med jer. Jeg søger nogle buddys som har lyst til at starte en Dungeons & Dragons kampagne sammen med mig. Jeg er selv 28 år, og foretrækker at finde nogle jævnaldrende, som ville være frisk på at spille i et par timer hver uge.',
-    //   location: 'Næstved',
-    //   category: 'Hygge',
-    //   minPersons: 1,
-    //   maxPersons: 6,
-    // };
-    // this.events = [event];
   }
 
   displayNumberOfPerson(event) {
@@ -95,5 +81,7 @@ export class Tab3Page implements OnInit {
     await alert.present();
   }
 
-  deleteEvent(event: any): void {}
+  deleteEvent(event: any): void {
+    this.firebaseService.delete_event(event.eventId)
+  }
 }

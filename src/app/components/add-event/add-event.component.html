@@ -19,7 +19,7 @@
             label="Titel"
             labelPlacement="stacked"
             type="text"
-            [(ngModel)]="title"
+            [(ngModel)]="event.title"
             placeholder="Titel"
           />
         </ion-item>
@@ -33,7 +33,7 @@
           class="date-time"
           #start
           *ngIf="showCalender"
-          [value]="date"
+          [value]="event.date"
           presentation="date"
           (ionChange)="datePicked(start.value)"
         ></ion-datetime>
@@ -44,7 +44,7 @@
             labelPlacement="stacked"
             type="text"
             [autoGrow]="true"
-            [(ngModel)]="description"
+            [(ngModel)]="event.description"
             placeholder="Beskrivelse"
           />
         </ion-item>
@@ -54,7 +54,7 @@
             label="Lokation"
             labelPlacement="stacked"
             type="text"
-            [(ngModel)]="location"
+            [(ngModel)]="event.location"
             placeholder="Lokation"
           />
         </ion-item>
@@ -63,7 +63,7 @@
           <ion-select
             label="Kategori"
             label-placement="stacked"
-            [(ngModel)]="category"
+            [(ngModel)]="event.category"
           >
             <ion-select-option value="Hygge">Hygge</ion-select-option>
             <ion-select-option value="Afleveringer"
@@ -78,7 +78,7 @@
             label="Min. personer"
             labelPlacement="stacked"
             type="number"
-            [(ngModel)]="minPersons"
+            [(ngModel)]="event.minPersons"
             placeholder="Min. personer"
           />
         </ion-item>
@@ -88,7 +88,7 @@
             label="Max. personer"
             labelPlacement="stacked"
             type="number"
-            [(ngModel)]="maxPersons"
+            [(ngModel)]="event.maxPersons"
             placeholder="Max. personer"
           />
         </ion-item>

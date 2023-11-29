@@ -33,7 +33,6 @@ export class EditEventComponent  implements OnInit {
   calendar = {
     mode: 'month' as CalendarMode,
     currentDate: new Date(),
-    formatHourColumn: 'H:mm',
     formatWeekTitle: `MMM 'uge' w`,
   };
 
