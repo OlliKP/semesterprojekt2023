@@ -5,7 +5,6 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { FormsModule } from '@angular/forms';
 import { EditEventComponent } from './edit-event/edit-event.component';
 
-
 @NgModule({
     imports: [
       IonicModule,
@@ -14,7 +13,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     ],
     declarations: [
       AddEventComponent,
-      EditEventComponent
+      EditEventComponent,
     ],
     exports: [AddEventComponent, EditEventComponent]
   })
