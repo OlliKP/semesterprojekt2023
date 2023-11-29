@@ -24,11 +24,13 @@ h1 {
 
 .logInd {
     width: 100%;
-    margin: auto;
+    margin-bottom: -1.5rem;
 }
 
 .kodeInput, .mailInput {
-    border-radius: 50px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.3rem;
 }
 
 ion-input, .btn, .eller, .signUp {
@@ -42,4 +44,23 @@ ion-input, .btn, .eller, .signUp {
 .logIndKnap, .eller, .signUp {
     display: flex;
     justify-content: center;
+  }
+
+.logIndKnap {
+    margin: auto;
+}
+
+  ion-button.signUp {
+    text-decoration: underline #000 2px;
+    color: #000;
+    font-size: 0.5rem;
+    --background: none;
+  }
+
+.signUp {
+    text-decoration: underline #000 2px;
+    color: var(--ion-color-sedondary);
+    font-size: 0.5rem;
+    --background: none;
+    --background-activated: none;
   }
