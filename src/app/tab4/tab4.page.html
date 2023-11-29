@@ -16,9 +16,15 @@
   </ion-buttons>
 
   <ion-buttons slot="primary">
-    <ion-button>
+    <ion-button id="present-alert">
       <ion-icon color="light" name="ellipsis-horizontal"></ion-icon>
     </ion-button>
+    <ion-alert
+      class="redigerSlet"
+      trigger="present-alert"
+      header="Vil du redigere eller slette din profil?"
+      [buttons]="alertButtons"
+    ></ion-alert>
   </ion-buttons>
 
   <h1>Min profil</h1>
@@ -33,7 +39,7 @@
           <ion-item class="item-lines-none">
             <img class="picture" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
           </ion-item>
-
+          
           <div class="picKnap">
             <ion-button class="btn">
               Tilføj et billede

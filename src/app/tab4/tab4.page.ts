@@ -12,4 +12,25 @@ export class Tab4Page implements OnInit {
   ngOnInit() {
   }
 
+  public alertButtons = [
+    {
+      text: 'Rediger',
+      role: 'rediger',
+      cssClass: 'alertRediger',
+      handler: () => {
+        console.log('Skal redigere');
+      },
+    },
+    {
+      text: 'Slet',
+      role: 'slet',
+      cssClass: 'alertSlet',
+      handler: () => {
+        console.log('slet profil');
+      },
+    },
+  ];
+
 }
+
+
