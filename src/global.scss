@@ -24,3 +24,11 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+ion-accordion-group{
+    ion-accordion {
+        .ion-accordion-toggle-icon {
+            color: var(--ion-color-secondary);
+        }
+    }
+}
