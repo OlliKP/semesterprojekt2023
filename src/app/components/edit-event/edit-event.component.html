@@ -1,3 +1,98 @@
-<p>
-  edit-event works!
-</p>
+<ion-content class="ion-padding">
+  <ion-modal [trigger]="['open-modal-edit-event' + event.eventId]">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Annuller</ion-button>
+          </ion-buttons>
+          <ion-title>Opret begivenhed</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="save()" [strong]="true">Gem</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-input
+            label="Titel"
+            labelPlacement="stacked"
+            type="text"
+            [(ngModel)]="event.title"
+            placeholder="Titel"
+          />
+        </ion-item>
+
+        <ion-item (click)="showCalender = !showCalender">
+          <ion-label>Start dato: </ion-label>
+          <ion-text class="ion-hover" slot="end">{{ formattedDate }}</ion-text>
+        </ion-item>
+
+        <ion-datetime
+          class="date-time"
+          #start
+          *ngIf="showCalender"
+          [value]="date"
+          presentation="date"
+          (ionChange)="datePicked(start.value)"
+        ></ion-datetime>
+
+        <ion-item>
+          <ion-textarea
+            label="Beskrivelse"
+            labelPlacement="stacked"
+            type="text"
+            [autoGrow]="true"
+            [(ngModel)]="event.description"
+            placeholder="Beskrivelse"
+          />
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Lokation"
+            labelPlacement="stacked"
+            type="text"
+            [(ngModel)]="event.location"
+            placeholder="Lokation"
+          />
+        </ion-item>
+
+        <ion-item>
+          <ion-select
+            label="Kategori"
+            label-placement="stacked"
+            [(ngModel)]="event.category"
+          >
+            <ion-select-option value="Hygge">Hygge</ion-select-option>
+            <ion-select-option value="Afleveringer"
+              >Afleveringer</ion-select-option
+            >
+            <ion-select-option value="Events">Events</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Min. personer"
+            labelPlacement="stacked"
+            type="number"
+            [(ngModel)]="event.minPersons"
+            placeholder="Min. personer"
+          />
+        </ion-item>
+
+        <ion-item>
+          <ion-input
+            label="Max. personer"
+            labelPlacement="stacked"
+            type="number"
+            [(ngModel)]="event.maxPersons"
+            placeholder="Max. personer"
+          />
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
