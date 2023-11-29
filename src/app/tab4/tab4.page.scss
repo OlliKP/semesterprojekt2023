@@ -1,70 +1,95 @@
-.mockup-img {
-    position: absolute;
-    opacity: 0.5;
-    z-index: 1;
-  }
-  
-  ion-header {
-    z-index: 1;
-    height: 18.5vh;
-  }
-  
-  .header-img {
-    position: relative;
-    top: -1.5rem;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-family: RalewaySemiBold;
-    font-size: 1.25rem;
-    z-index: 2;
-  }
-  
-  ion-toolbar {
-    border-bottom: 2px solid white;
-    width: 85vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
+ion-header {
+  z-index: 1;
+  height: 18.5vh;
+}
 
-  .btn {
-    --color: #fff;
-  }
+.header-img {
+  position: relative;
+  top: -1.5rem;
+}
 
-  .cardStr {
-    width: 85vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
+h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: RalewaySemiBold;
+  font-size: 1.25rem;
+  z-index: 2;
+  color: #fff;
+}
 
-  .logUdKnap {
-    display: flex;
-    justify-content: center;
-  }
+h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 1rem;
+  z-index: 2;
+  color: #fff;
+}
 
-  ion-toolbar,
-  ion-content,
-  ion-card,
-  ion-card-content,
-  ion-list,
-  ion-item {
-    --background: var(--ion-color-secondary);
-  }
+ion-toolbar {
+  border-bottom: 2px solid white;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  ion-list,
-  ion-content,
-  ion-card-content,
-  ion-card,
-  ion-item,
-  img {
-    border: none;
-    box-shadow: none;
-  }
+.btn {
+  --color: #fff;
+}
 
-  div {
-    background: var(--ion-color-secondary);
-    border: none;
-  }
+.cardStr {
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.picKnap,
+.logUdKnap {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.picKnap {
+  border-bottom: 2px solid white;
+  margin-top: 0.5em;
+  padding-bottom: 2em;
+}
+
+ion-toolbar,
+ion-content,
+ion-card,
+ion-card-content,
+ion-item,
+div {
+  --background: var(--ion-color-secondary);
+}
+
+ion-content,
+ion-card-content,
+ion-card,
+ion-item,
+img {
+  box-shadow: none;
+}
+
+.navnTekst {
+  margin-top: 2em;
+}
+
+.mailTekst {
+  margin-top: 0.5em;
+}
+
+.navnInput, .mailInput {
+  border-radius: 5px;
+}
+
+ion-input {
+  color: #fff;
+}
+
+.picture {
+  height: auto;
+  width: 35vw;
+}

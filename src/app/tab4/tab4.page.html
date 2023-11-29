@@ -15,9 +15,9 @@
     </ion-button>
   </ion-buttons>
 
-  <ion-buttons color="secondary" slot="primary">
+  <ion-buttons slot="primary">
     <ion-button>
-      <ion-icon name="ellipsis-horizontal"></ion-icon>
+      <ion-icon color="light" name="ellipsis-horizontal"></ion-icon>
     </ion-button>
   </ion-buttons>
 
@@ -29,29 +29,32 @@
   <ion-card class="cardStr">
 
       <ion-card-content>
-        <ion-list lines="none">
-          <ion-item>
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        <div>
+          <ion-item class="item-lines-none">
+            <img class="picture" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
           </ion-item>
 
-          <div class="logUdKnap">
+          <div class="picKnap">
             <ion-button class="btn">
               Tilføj et billede
               <ion-icon name="camera"></ion-icon>
             </ion-button>
           </div>
     
-          <ion-item color="medium">
-            <ion-input label="Navn" labelPlacement="stacked" value="Maria Christensen" readonly="true">
+          <h2 class="navnTekst">Navn</h2>
+          <ion-item class="navnInput" color="medium">
+            <ion-input labelPlacement="stacked" value="Maria Christensen" readonly="true">
             </ion-input>
           </ion-item>
-
-          <ion-item color="medium">
-            <ion-input label="E-mail" labelPlacement="stacked" value="mariachristiansen@gmail.com" readonly="true">
+        
+          <h2 class="mailTekst">Email</h2>
+          <ion-item class="mailInput" color="medium">
+            
+            <ion-input labelPlacement="stacked" value="mariachristiansen@gmail.com" readonly="true">
             </ion-input>
           </ion-item>
     
-        </ion-list>          
+        </div>          
 
         <div class="logUdKnap">
           <ion-button class="btn">
