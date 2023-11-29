@@ -1,0 +1,47 @@
+.mockup-img {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  ion-header {
+    z-index: 1;
+    height: 18.5vh;
+  }
+  
+  .header-img {
+    position: relative;
+    top: -1.5rem;
+  }
+
+  .placeholder-img {
+    position: absolute;
+    top: 0;
+    z-index: 56;
+    opacity: 0.3;
+  }
+  
+  ion-toolbar {
+    border-bottom: 2px solid white;
+    width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: RalewaySemiBold;
+    font-size: 1.25rem;
+    z-index: 2;
+  }
+
+  .event-h2 {
+    text-align: center;
+    margin-top: .5rem;
+    font-family: RalewayMediumItalic;
+    font-size: 0.938rem;
+    z-index: 2;
+    color: white;
+  }
