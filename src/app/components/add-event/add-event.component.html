@@ -17,8 +17,10 @@
         <ion-item>
           <ion-input
             label="Titel"
-            labelPlacement="stacked"
+            labelPlacement="floating"
             type="text"
+            [counter]="true"
+            maxlength="20"
             [(ngModel)]="event.title"
             placeholder="Titel"
           />
@@ -41,7 +43,7 @@
         <ion-item>
           <ion-textarea
             label="Beskrivelse"
-            labelPlacement="stacked"
+            labelPlacement="floating"
             type="text"
             [autoGrow]="true"
             [(ngModel)]="event.description"
@@ -52,7 +54,7 @@
         <ion-item>
           <ion-input
             label="Lokation"
-            labelPlacement="stacked"
+            labelPlacement="floating"
             type="text"
             [(ngModel)]="event.location"
             placeholder="Lokation"
@@ -62,7 +64,7 @@
         <ion-item>
           <ion-select
             label="Kategori"
-            label-placement="stacked"
+            label-placement="floating"
             [(ngModel)]="event.category"
           >
             <ion-select-option value="Hygge">Hygge</ion-select-option>
@@ -76,7 +78,7 @@
         <ion-item>
           <ion-input
             label="Min. personer"
-            labelPlacement="stacked"
+            labelPlacement="floating"
             type="number"
             [(ngModel)]="event.minPersons"
             placeholder="Min. personer"
@@ -86,7 +88,7 @@
         <ion-item>
           <ion-input
             label="Max. personer"
-            labelPlacement="stacked"
+            labelPlacement="floating"
             type="number"
             [(ngModel)]="event.maxPersons"
             placeholder="Max. personer"

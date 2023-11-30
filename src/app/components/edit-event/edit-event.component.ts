@@ -45,6 +45,7 @@ export class EditEventComponent  implements OnInit {
   }
 
   datePicked(value: any) {
+    this.event.date = value.split('T')[0];
     this.date = value;
     this.formattedDate = format(parseISO(value), 'MMM d, yyyy');
     this.showCalender = false;

@@ -25,9 +25,32 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-
 .alert-button.sc-ion-alert-ios:last-child {
-    background-color: var(--ion-color-primary);
-    color: var(--ion-color-light);
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-light);
 }
-  
+
+ion-modal {
+  --height: 81vh;
+}
+
+ion-modal ion-toolbar {
+  --background: var(--ion-color-tertiary);
+  --color: white;
+}
+
+ion-modal ion-toolbar ion-button {
+  --color: #234352;
+}
+
+ion-modal ion-content {
+  border-radius: 10px;
+}
+
+ion-datetime {
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  margin-bottom: .5rem;
+}
