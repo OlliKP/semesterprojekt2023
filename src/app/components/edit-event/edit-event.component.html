@@ -33,7 +33,7 @@
           class="date-time"
           #start
           *ngIf="showCalender"
-          [value]="date"
+          [value]="event.date"
           presentation="date"
           (ionChange)="datePicked(start.value)"
         ></ion-datetime>

@@ -2,6 +2,8 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { CalendarMode } from 'ionic2-calendar';
+import { FirebaseService } from 'src/app/services/firebase.service';
+
 
 @Component({
   selector: 'app-edit-event',
@@ -11,17 +13,7 @@ import { CalendarMode } from 'ionic2-calendar';
 export class EditEventComponent  implements OnInit {
   @Input() event: any;
 
-  eventId?: string;
-  title: string;
-  profilId: number;
-  date: any;
-  description: string;
-  location: string;
-  category: string;
-  minPersons: number;
-  maxPersons: number;
-
-  constructor() { }
+  constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit() {}
 
@@ -42,11 +34,12 @@ export class EditEventComponent  implements OnInit {
 
   save() {
     this.modal.dismiss('', 'confirm');
+    this.firebaseService.update_event(this.event.eventId, this.event);
   }
 
   datePicked(value: any) {
     this.event.date = value.split('T')[0];
-    this.date = value;
+    this.event.date = value;
     this.formattedDate = format(parseISO(value), 'MMM d, yyyy');
     this.showCalender = false;
   }

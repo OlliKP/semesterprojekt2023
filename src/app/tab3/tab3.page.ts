@@ -40,7 +40,6 @@ export class Tab3Page implements OnInit {
         return {
           eventId: e.payload.doc.id,
           title: e.payload.doc.data()['title'],
-          profilId: e.payload.doc.data()['profileId'],
           date: e.payload.doc.data()['date'],
           description: e.payload.doc.data()['description'],
           location: e.payload.doc.data()['location'],
