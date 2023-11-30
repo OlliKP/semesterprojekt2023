@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   },
   {
+    path: 'chat',
+    loadChildren: () => import('./tab2/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
     path: 'add-event',
     loadChildren: () => import('./components/add-event/add-event.component').then( m => m.AddEventComponent)
   },
@@ -18,6 +22,7 @@ const routes: Routes = [
     path: 'edit-event',
     loadChildren: () => import('./components/edit-event/edit-event.component').then( m => m.EditEventComponent)
   }
+
 ];
 @NgModule({
   imports: [
