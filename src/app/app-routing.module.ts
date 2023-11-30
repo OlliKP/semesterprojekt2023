@@ -9,6 +9,14 @@ const routes: Routes = [
   {
     path: 'tab4',
     loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
+  },
+  {
+    path: 'add-event',
+    loadChildren: () => import('./components/add-event/add-event.component').then( m => m.AddEventComponent)
+  },
+  {
+    path: 'edit-event',
+    loadChildren: () => import('./components/edit-event/edit-event.component').then( m => m.EditEventComponent)
   }
 ];
 @NgModule({
