@@ -16,7 +16,7 @@
     *ngFor="let event of events"
     class="acc-group"
     expand="inset"
-  >
+    ><ion-accordion>
       <ion-item class="acc-item" slot="header" color="light">
         <img
           class="event-img"
@@ -30,8 +30,7 @@
         </div>
         <div class="buddys-figurer">
           <h5 class="antal-item">{{ displayNumberOfPerson(event) }}</h5>
-          
-        
+
           <img
             src="../../assets/grafik/buddys-figurer.svg"
             alt="Små buddys figurer"
@@ -77,6 +76,3 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
-
-
-
