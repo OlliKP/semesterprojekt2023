@@ -12,17 +12,69 @@
 </ion-toolbar>
 
 <ion-content color="secondary" [fullscreen]="true">
-  <div class="event-container">
-    <div class="event-img-text">
-      <div class="event-img">
+  <ion-accordion-group
+    *ngFor="let event of events"
+    class="acc-group"
+    expand="inset"
+    ><ion-accordion>
+      <ion-item class="acc-item" slot="header" color="light">
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
+        <div class="text-item-div">
+          <h2 class="titel-item">{{event.title}}</h2>
+          <h3 class="navn-item">Maria Christiansen</h3>
+          <h4 class="dato-item">d. {{event.date}}</h4>
+        </div>
+        <div class="buddys-figurer">
+          <h5 class="antal-item">{{ displayNumberOfPerson(event) }}</h5>
+
+          <img
+            src="../../assets/grafik/buddys-figurer.svg"
+            alt="Små buddys figurer"
+          />
+        </div>
+      </ion-item>
+      <div class="div-content" slot="content">
+        <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+        <p class="beskrivelse-text">{{ event.description }}</p>
+        <div class="text-and-icon-container">
+          <div>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Lokation:</b> {{ event.location }}
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Kategori:</b> {{ event.category }}
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}
+            </p>
+          </div>
+          <div class="acc-icons-container">
+            <ion-icon
+              [id]="['open-modal-edit-event' + event.eventId]"
+              class="acc-icon"
+              name="ellipsis-horizontal"
+            ></ion-icon>
+            <ion-icon
+              (click)="deleteAlert(event)"
+              class="acc-icon"
+              name="trash"
+            ></ion-icon>
+          </div>
+        </div>
       </div>
-      <div class="event-text">
-        <h2>Søger en DnD Gruppe</h2>
-        <p>Oliver Krumbæk Perving</p>
-      </div>
-    </div>
-    <div>
-      
-    </div>
-  </div>
+      <app-edit-event [event]="event"></app-edit-event>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="fab-btn" id="open-modal-new-event">
+      <ion-icon class="fab-icon" color="light" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
+
+<app-add-event></app-add-event>

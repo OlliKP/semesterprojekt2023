@@ -1,0 +1,134 @@
+.mockup-img {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  ion-header {
+    z-index: 1;
+    height: 18.5vh;
+  }
+  
+  .header-img {
+    position: relative;
+    top: -1.5rem;
+  }
+
+  .placeholder-img {
+    position: absolute;
+    top: 0;
+    z-index: 56;
+    opacity: 0.3;
+  }
+  
+  ion-toolbar {
+    border-bottom: 2px solid white;
+    width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: RalewaySemiBold;
+    font-size: 1.25rem;
+    z-index: 2;
+  }
+
+  .profil-img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 20px;
+  }
+
+  .event-h2 {
+    text-align: center;
+    margin-top: .5rem;
+    font-family: RalewayMediumItalic;
+    font-size: 0.938rem;
+    z-index: 2;
+    color: white;
+  }
+
+  .message-area {
+    padding-top: 1rem;
+    width: 85vw;
+    background-color: var(--ion-color-secondary);
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .message {
+    margin-bottom: 1rem;
+    border-radius: 25px;
+    padding: .5rem 1rem;
+    color: black;
+    font-family: RalewaySemiBold;
+    font-size: 0.625rem;
+  }
+
+  p {
+    margin-bottom: .4rem;
+    margin-top: .4rem;
+  }
+
+  .message-time {
+    font-family: RalewayLightItalic;
+    color: #6C6C6C;
+    font-size: 0.625rem;
+    text-align: end;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .sender {
+    text-align: start;
+    margin-right: 7rem;
+    background-color: var(--ion-color-success);
+  }
+
+  .reciever {
+    text-align: start;
+    margin-left: 7rem;
+    background-color: var(--ion-color-light);
+  }
+
+  .message-bar {
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ion-color-secondary);
+    position: fixed;
+    bottom: 0;
+
+    ion-input{
+      width: 85vw;
+      height: 2.5rem;
+      border-radius: 25px;
+      border: 0px;
+      --padding-start: 1rem;
+      --padding-end: 4rem;
+      background-color: white;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      --placeholder-color: black;
+    }
+
+    .send-btn {
+      width: 15vw;
+      height: 2.8rem;
+      background-color: var(--ion-color-primary);
+      margin-left: -15vw;
+      z-index: 2;
+      border-radius: 25px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+  }
+  
