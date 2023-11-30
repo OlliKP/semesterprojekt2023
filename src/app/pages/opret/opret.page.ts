@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  createUserWithEmailAndPassword,
+  Auth,
+  updateProfile,
+} from '@angular/fire/auth';
+import { Router, RouterConfigOptions } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-opret',
@@ -6,10 +14,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./opret.page.scss'],
 })
 export class OpretPage implements OnInit {
+  user = {
+    name: '',
+    email: '',
+    password: '',
+  };
 
-  constructor() { }
+  isLoading = false;
 
-  ngOnInit() {
+  constructor(private auth: Auth, private router: Router) {}
+
+  ngOnInit() {}
+
+  signUp() {
+    this.isLoading = true;
+    createUserWithEmailAndPassword(
+      this.auth,
+      this.user.email,
+      this.user.password
+    ).then((response) => {
+      console.log(this.auth.currentUser);
+      updateProfile(this.auth.currentUser, {
+        displayName: this.user.name,
+      }).then((updateResponse) => {
+        setTimeout(() => {
+          this.router.navigate(['/'])
+        }, 1000);
+      });
+    });
   }
-
 }

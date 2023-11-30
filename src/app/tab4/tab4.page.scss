@@ -93,3 +93,7 @@ ion-input {
   height: auto;
   width: 35vw;
 }
+
+ion-content::part(scroll){
+  padding-bottom: 0;  
+}

@@ -7,14 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'tab4',
-    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
-  },
-  {
-    path: 'chat',
-    loadChildren: () => import('./tab2/chat/chat.module').then( m => m.ChatPageModule)
-  },
-  {
     path: 'add-event',
     loadChildren: () => import('./components/add-event/add-event.component').then( m => m.AddEventComponent)
   },

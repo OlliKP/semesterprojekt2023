@@ -1,66 +1,79 @@
-body, ion-card, .bg-img {
-    background-color: var(--ion-color-success);
-    box-shadow: none;
+body,
+ion-card,
+.bg-img {
+  background-color: var(--ion-color-success);
+  box-shadow: none;
 }
 
 .hd-img {
-    width: 80%;
-    height: 35vh;
-    margin-top: -3rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    z-index: -1;
+  width: 80%;
+  height: 35vh;
+  margin-top: -3rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: -1;
 }
 
 h1 {
-    text-align: center;
-    margin-top: -3rem;
-    margin-bottom: 0;
-    font-family: RalewaySemiBold;
-    font-size: 3.8rem;
-    color: #000;
-  }
+  text-align: center;
+  margin-top: -3rem;
+  margin-bottom: 0;
+  font-family: RalewaySemiBold;
+  font-size: 3.8rem;
+  color: #000;
+}
 
 .logInd {
-    width: 100%;
-    margin-bottom: -1rem;
+  width: 100%;
+  margin-bottom: -1rem;
 }
 
-.kodeInput, .mailInput {
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1.3rem;
+.kodeInput,
+.mailInput {
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.3rem;
 }
 
-ion-input, .btn, .eller, .signUp {
-    color: #fff;
-  }
+ion-input,
+.btn,
+.eller,
+.signUp {
+  color: #fff;
+}
 
 .kodeInput {
-    margin-top: 1em;
+  margin-top: 1em;
 }
 
-.logIndKnap, .eller, .signUp {
-    display: flex;
-    justify-content: center;
-  }
+.logIndKnap,
+.eller,
+.signUp {
+  display: flex;
+  justify-content: center;
+}
 
 .logIndKnap {
-    margin: auto;
+  margin: auto;
 }
 
-  ion-button.signUp {
-    text-decoration: underline #000 2px;
-    color: #000;
-    font-size: 0.5rem;
-    --background: none;
-  }
+ion-button.signUp {
+  color: #000;
+  --background: none;
+}
 
 .signUp {
-    text-decoration: underline #000 2px;
-    color: var(--ion-color-sedondary);
-    font-size: 0.5rem;
-    --background: none;
-    --background-activated: none;
-  }
+  text-decoration: underline #000 1px;
+  color: var(--ion-color-sedondary);
+  font-size: 0.75rem;
+  --background: none;
+  --background-activated: none;
+  margin-top: -0.5rem;
+}
+
+.btn::part(native) {
+  border-radius: 50px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
