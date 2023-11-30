@@ -13,6 +13,14 @@ const routes: Routes = [
   {
     path: 'chat',
     loadChildren: () => import('./tab2/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'add-event',
+    loadChildren: () => import('./components/add-event/add-event.component').then( m => m.AddEventComponent)
+  },
+  {
+    path: 'edit-event',
+    loadChildren: () => import('./components/edit-event/edit-event.component').then( m => m.EditEventComponent)
   }
 
 ];
