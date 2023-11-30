@@ -14,6 +14,13 @@ ion-header {
   top: -1.5rem;
 }
 
+ion-toolbar {
+  border-bottom: 2px solid white;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
   text-align: center;
   margin-top: 0;
@@ -21,13 +28,6 @@ h1 {
   font-family: RalewaySemiBold;
   font-size: 1.25rem;
   z-index: 2;
-}
-
-ion-toolbar {
-  border-bottom: 2px solid white;
-  width: 85vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 // Content
@@ -52,12 +52,18 @@ ion-toolbar {
 }
 
 .event-img {
-  border-radius: 50px 5px 5px 50px;
-  width: 18vw;
+  border-radius: 5px 5px 5px 5px;
+  width: 13vw;
   z-index: 6;
-  background-image: url(https://i.pravatar.cc/165);
+  background-image: url(https://i.pravatar.cc/285);
   background-size: cover;
-  height: 7vh;
+  height: 13vw;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper{
+  width: 100%;
 }
 
 .event-text {
@@ -79,4 +85,98 @@ ion-toolbar {
   font-size: 0.688rem;
   font-family: RalewayMediumItalic;
   margin: 0;
+}
+
+.acc-group {
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 16px;
+}
+
+.text-item-div {
+  margin-left: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-item-content {
+  display: flex;
+}
+
+.titel-item {
+  font-family: RalewaySemiBold;
+  font-size: 0.875rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  color: black;
+}
+
+.navn-item {
+  font-family: RalewayRegular;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+  color: black;
+}
+
+.dato-item {
+  font-family: InterRegular;
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
+.antal-item {
+  font-family: RalewayRegular;
+  font-size: 0.688rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.2rem;
+}
+
+.div-content {
+  color: black;
+  font-family: InterRegular;
+  font-size: 0.75rem;
+  margin: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.beskrivelse-text {
+  margin-top: 0.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.p-margin-bottom {
+  margin-bottom: 0;
+}
+
+.p-margin-top {
+  margin-top: 0.5rem;
+}
+
+.text-and-icon-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.acc-icons-container{
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+}
+
+.acc-icon {
+  font-size: 1.5rem;
 }

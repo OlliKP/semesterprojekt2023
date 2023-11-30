@@ -1,5 +1,4 @@
 <ion-header collapse="condense">
-  <!-- <img class="mockup-img" src="../../assets/grafik/mockup-favoritter.png" alt=""> -->
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -8,21 +7,63 @@
 </ion-header>
 
 <ion-toolbar color="secondary">
+  <ion-buttons slot="start">
+    <ion-button>
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <h1>Alle Begivenheder</h1>
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
-  <div class="event-container">
-    <div class="event-img-text">
-      <div class="event-img">
+
+<ion-content color="secondary" [fullscreen]="false">
+  <ion-accordion-group class="acc-group" expand="inset">
+    <ion-accordion value="Titel" class="acc" >
+      <ion-item class="acc-item" slot="header" color="light">
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
+        <div class="text-item-div">
+          <h2 class="titel-item">Brætspil og rødvin</h2>
+          <h3 class="navn-item">Maria Christiansen</h3>
+          <h4 class="dato-item">d. 25/11-23</h4>
+        </div>
+        <div class="buddys-figurer">
+          <h5 class="antal-item">2-4</h5>
+          <img
+            src="../../assets/grafik/buddys-figurer.svg"
+            alt="Små buddys figurer"
+          />
+        </div>
+      </ion-item>
+      <div class="div-content" slot="content">
+        <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+        <p class="beskrivelse-text">
+          Hej med jer. Jeg søger nogle buddys som har lyst til at starte en
+          Dungeons & Dragons kampagne sammen med mig. Jeg er selv 28 år, og
+          foretrækker at finde nogle jævnaldrende, som ville være frisk på at
+          spille i et par timer hver uge.
+        </p>
+        <div class="text-and-icon-container">
+          <div>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Lokation:</b> Køge eller online
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Kategori:</b> Seværdigheder
+            </p>
+            <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> 2-4</p>
+          </div>
+          <div class="acc-icons-container">
+            <ion-icon class="acc-icon" color="warning" name="star-outline"></ion-icon>
+            <ion-button size="small">Tilmeld
+              <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
+            </ion-button>          
+          </div>
+        </div>
       </div>
-      <div class="event-text">
-        <h2>Søger en DnD Gruppe</h2>
-        <p>Oliver Krumbæk Perving</p>
-      </div>
-    </div>
-    <div>
-      
-    </div>
-  </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>
