@@ -38,7 +38,7 @@ ion-toolbar {
   margin-top: 1.2rem;
   margin-right: auto;
   margin-left: auto;
-  z-index: 5;
+  z-index: -6;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -178,4 +178,36 @@ ion-toolbar {
 
 .acc-icon {
   font-size: 1.5rem;
+}
+
+
+
+// Alert
+
+.alert-button.sc-ion-alert-ios:last-child {
+  background-color: var(--ion-color-medium);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fab and modal
+
+.fab-btn{
+  width: 3rem;
+  height: 3rem;
+  margin-right: 5vw;
+}
+
+.fab-icon{
+  font-size: 2.5rem;
 }
