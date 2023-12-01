@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, AlertController, ModalController } from '@ionic/angular';
+import { ActionSheetController,
+        AlertController,
+        ModalController } from '@ionic/angular';
+/* import { EditComponent } from '../edit/edit.component'; 
+import { EditPage } from '../edit/edit/edit.page';*/
 
 
 @Component({
@@ -13,20 +17,21 @@ export class Tab4Page implements OnInit {
     private actionSheetController: ActionSheetController,
     private alertController: AlertController,
     private modalController: ModalController,
-    private editComponent: EditComponent,
+   /*  private editComponent: EditComponent, 
+    private editPage: EditPage,*/
   ) { }
 
   ngOnInit() {
   }
 
-async presentActionSheet() {
+  /* async presentActionSheet() {
   const actionSheet = await this.actionSheetController.create({
     header: 'Vil du slette eller redigere?',
     buttons: [{
       // knap 1
       text: 'Rediger',
       handler: () => {
-        this.presentModal();
+        this.presentModal(); 
         console.log('Skal redigere');
       }
     },
@@ -41,6 +46,14 @@ async presentActionSheet() {
   ]
   });
   await actionSheet.present();
+}
+
+async presentModal() {
+  const modal = await this.modalController.create({
+    component: EditPage,
+    //componentProps: this.profil redigerer profil-siden
+  });
+  modal.present();
 }
 
 //tilføj en "alert" til at godkende handling ved eks. fjerne fra favorit
@@ -66,22 +79,15 @@ async presentAlert() {
     ]
   });
   await alert.present();
-}
+} */
 
-async presentModal () {
-  const modal = await this.modalController.create({
-    component: this.editComponent,
-    /* componentProps: {Hvis du har nogen proprietær data at sende til modalen} */
-  });
-  modal.present();
-}
 
-  /* public alertButtons = [
+ 
+  public alertButtons = [
     {
       text: 'Rediger',
       role: 'rediger',
       handler: () => {
-        this.presentModal();
         console.log('Skal redigere');
       },
     },
@@ -92,8 +98,14 @@ async presentModal () {
         console.log('slet profil');
       },
     },
-  ]; */
+  ];
 
 }
 
-
+/* async presentModal () {
+  const modal = await this.modalController.create({
+    component: this.editComponent,
+    componentProps: {Hvis du har nogen proprietær data at sende til modalen} */
+  /* });
+  modal.present();
+} */ 
