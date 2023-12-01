@@ -9,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class Tab4Page implements OnInit {
 
-  constructor(private auth: Auth, private router: Router) { }
+  constructor(
+    private auth: Auth,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
   }
@@ -18,12 +21,13 @@ export class Tab4Page implements OnInit {
     this.photoService.addNewToGallery();
   } */
 
-  public alertButtons = [
+  /* public alertButtons = [
     {
       text: 'Rediger',
       role: 'rediger',
       handler: () => {
         console.log('Skal redigere');
+        this.editProfileComponent.isOpen = true;
       },
     },
     {
@@ -33,7 +37,7 @@ export class Tab4Page implements OnInit {
         console.log('slet profil');
       },
     },
-  ];
+  ]; */
 
   signOut() {
     signOut(this.auth).then(() => {

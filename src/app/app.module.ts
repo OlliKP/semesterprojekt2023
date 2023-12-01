@@ -14,8 +14,6 @@ import { environment } from 'src/environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
-import { WebcamModule } from 'ngx-webcam';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
