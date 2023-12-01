@@ -13,8 +13,8 @@
         </ion-toolbar>
       </ion-header>
 
-<ion-content color="dark">
-  <ion-list [inset]="true">
+<ion-content color="secondary">
+  <ion-list [inset]="true" class="redigerFelter">
     <ion-item>
       <ion-input
       label="Navn"
@@ -38,19 +38,23 @@
     <ion-item>
       <ion-input label="Gentag ny adgangskode" type="password" value="password"></ion-input>
     </ion-item>
-<ion-buttons slot="start">
-      <ion-button class="slet"
-      (click)="deleteAlert()">
-        Slet profil</ion-button>
-    </ion-buttons>
-  </ion-list>
 
+
+
+  </ion-list>
+<ion-list class="sletKnap">
+  <ion-buttons slot="start">
+    <ion-button class="slet"
+    (click)="deleteAlert()">
+      Slet profil</ion-button>
+  </ion-buttons>
+</ion-list>
   
-    
+ 
 
   
 </ion-content>
-
+ 
     </ng-template>
   </ion-modal>
 </ion-content>

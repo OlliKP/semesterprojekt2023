@@ -30,3 +30,11 @@ ion-input.custom {
   .button-clear::part(native) {
     border-radius: 14px;
   }
+
+  .sletKnap {
+    background-color: var(--ion-color-secondary);
+  }
+
+  .redigerFelter {
+    margin-top: 10em;
+  }
