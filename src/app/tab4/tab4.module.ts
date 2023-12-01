@@ -7,15 +7,13 @@ import { IonicModule } from '@ionic/angular';
 import { Tab4PageRoutingModule } from './tab4-routing.module';
 
 import { Tab4Page } from './tab4.page';
-/* import { EditComponent } from '../edit/edit/edit.component'; */
-/* import { EditPage } from '../edit/edit/edit.page'; */
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab4PageRoutingModule,
+    Tab4PageRoutingModule
     
   ],
   declarations: [Tab4Page]
