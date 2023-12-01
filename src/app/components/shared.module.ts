@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddEventComponent } from './add-event/add-event.component';
 import { FormsModule } from '@angular/forms';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     declarations: [
       AddEventComponent,
       EditEventComponent,
+      EditProfileComponent
     ],
-    exports: [AddEventComponent, EditEventComponent]
+    exports: [AddEventComponent, EditEventComponent, EditProfileComponent]
   })
   export class SharedModule { }

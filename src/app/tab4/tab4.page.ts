@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { signOut, Auth } from '@angular/fire/auth';
+import { Auth, signOut } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,7 +34,7 @@ export class Tab4Page implements OnInit {
       },
     },
   ];
-}
+
   signOut() {
     signOut(this.auth).then(() => {
       this.router.navigate(['/login'])
