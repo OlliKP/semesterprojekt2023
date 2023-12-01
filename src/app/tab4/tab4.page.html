@@ -43,7 +43,11 @@
           <div class="picKnap">
             <ion-button class="btn">
               Tilføj et billede
-              <ion-icon name="camera"></ion-icon>
+              <ion-fab>
+                <ion-fab-button (click)="addPhotoToGallery()">
+                  <ion-icon name="camera"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
             </ion-button>
           </div>
     

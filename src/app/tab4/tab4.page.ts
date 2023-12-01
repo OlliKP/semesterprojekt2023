@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActionSheetController,
         AlertController,
         ModalController } from '@ionic/angular';
+import { PhotoService } from '../services/photo.service';
+
 /* import { EditComponent } from '../edit/edit.component'; 
 import { EditPage } from '../edit/edit/edit.page';*/
 
@@ -17,6 +19,7 @@ export class Tab4Page implements OnInit {
     private actionSheetController: ActionSheetController,
     private alertController: AlertController,
     private modalController: ModalController,
+    public photoService: PhotoService, 
    /*  private editComponent: EditComponent, 
     private editPage: EditPage,*/
   ) { }
@@ -24,7 +27,30 @@ export class Tab4Page implements OnInit {
   ngOnInit() {
   }
 
-  /* async presentActionSheet() {
+  addPhotoToGallery () {
+    this.photoService.addNewToGallery();
+  }
+
+  public alertButtons = [
+    {
+      text: 'Rediger',
+      role: 'rediger',
+      handler: () => {
+        console.log('Skal redigere');
+      },
+    },
+    {
+      text: 'Slet',
+      role: 'slet',
+      handler: () => {
+        console.log('slet profil');
+      },
+    },
+  ];
+
+}
+
+/* async presentActionSheet() {
   const actionSheet = await this.actionSheetController.create({
     header: 'Vil du slette eller redigere?',
     buttons: [{
@@ -80,27 +106,6 @@ async presentAlert() {
   });
   await alert.present();
 } */
-
-
- 
-  public alertButtons = [
-    {
-      text: 'Rediger',
-      role: 'rediger',
-      handler: () => {
-        console.log('Skal redigere');
-      },
-    },
-    {
-      text: 'Slet',
-      role: 'slet',
-      handler: () => {
-        console.log('slet profil');
-      },
-    },
-  ];
-
-}
 
 /* async presentModal () {
   const modal = await this.modalController.create({
