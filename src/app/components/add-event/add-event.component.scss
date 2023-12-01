@@ -1,0 +1,25 @@
+ion-modal{
+    margin-top: 10rem;
+}
+
+
+ion-content::part(background){
+    background: #234352;
+
+}
+
+ion-item::part(native){
+    border-radius: 5px;
+    margin-bottom: .5rem;
+    width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: .875rem;
+    font-family: InterRegular;
+
+}
+
+ion-content::part(scroll){
+    padding-bottom: 0;  
+}
+

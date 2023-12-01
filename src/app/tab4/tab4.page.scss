@@ -95,3 +95,7 @@ ion-input {
   margin: auto;
     display: block;
 }
+
+ion-content::part(scroll){
+  padding-bottom: 0;  
+}

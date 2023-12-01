@@ -1,5 +1,4 @@
 <ion-header collapse="condense">
-  <!-- <img class="mockup-img" src="../../assets/grafik/mockup-favoritter.png" alt=""> -->
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -8,22 +7,21 @@
 </ion-header>
 
 <ion-toolbar color="secondary">
-  <h1>Mine beskeder</h1>
+  <h1>Mine Beskeder</h1>
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
-  <div class="event-container">
-    <div class="event-img-text">
-      <div class="event-img">
+
+<ion-content color="secondary" [fullscreen]="false">
+  <div class="acc-group">
+    <div class="list-item" routerLink="./chat">
+      <div class="list-item-content">
+        <img class="event-img" src="https://i.pravatar.cc/285" alt="Profilbillede" />
+        <div class="text-item-div">
+          <h2 class="titel-item">Brætspil og rødvin</h2>
+          <h3 class="navn-item">Maria Christiansen</h3>
+        </div>
       </div>
-      <div class="event-text">
-        <h2>Søger en DnD Gruppe</h2>
-        <p>Oliver Krumbæk Perving</p>
-      </div>
-    </div>
-    <div>
-      
+      <ion-icon size="large" color="secondary" name="chevron-forward-outline"></ion-icon>
     </div>
   </div>
 </ion-content>
-

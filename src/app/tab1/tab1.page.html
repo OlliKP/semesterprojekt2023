@@ -1,5 +1,4 @@
 <ion-header collapse="condense">
-  <!-- <img class="mockup-img" src="../../assets/grafik/mockup-favoritter.png" alt=""> -->
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -8,21 +7,60 @@
 </ion-header>
 
 <ion-toolbar color="secondary">
+  <ion-buttons slot="start">
+    <ion-button>
+      <ion-icon slot="icon-only" name="star"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <h1>Alle Begivenheder</h1>
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
-  <div class="event-container">
-    <div class="event-img-text">
-      <div class="event-img">
+
+<ion-content color="secondary" [fullscreen]="false">
+  <ion-accordion-group class="acc-group" expand="inset" *ngFor="let event of events">
+    <ion-accordion value="Titel" class="acc">
+      <ion-item class="acc-item" slot="header" color="light">
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
+        <div class="text-item-div">
+          <h2 class="titel-item">{{event.title}}</h2>
+          <h3 class="navn-item">{{event.title}}</h3>
+          <h4 class="dato-item">{{event.date}}</h4>
+        </div>
+        <div class="buddys-figurer">
+          <h5 class="antal-item">{{ displayNumberOfPerson(event) }}</h5>
+          <img
+            src="../../assets/grafik/buddys-figurer.svg"
+            alt="Små buddys figurer"
+          />
+        </div>
+      </ion-item>
+      <div class="div-content" slot="content">
+        <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+        <p class="beskrivelse-text">
+          {{event.description}}
+        </p>
+        <div class="text-and-icon-container">
+          <div>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Lokation:</b> {{event.location}}
+            </p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Kategori:</b> {{event.category}}
+            </p>
+            <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}</p>
+          </div>
+          <div class="acc-icons-container">
+            <ion-icon class="acc-icon" color="warning" name="star-outline"></ion-icon>
+            <ion-button size="small">Tilmeld
+              <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
+            </ion-button>          
+          </div>
+        </div>
       </div>
-      <div class="event-text">
-        <h2>Søger en DnD Gruppe</h2>
-        <p>Oliver Krumbæk Perving</p>
-      </div>
-    </div>
-    <div>
-      
-    </div>
-  </div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

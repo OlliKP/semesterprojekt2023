@@ -14,6 +14,13 @@ ion-header {
   top: -1.5rem;
 }
 
+ion-toolbar {
+  border-bottom: 2px solid white;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
   text-align: center;
   margin-top: 0;
@@ -21,13 +28,6 @@ h1 {
   font-family: RalewaySemiBold;
   font-size: 1.25rem;
   z-index: 2;
-}
-
-ion-toolbar {
-  border-bottom: 2px solid white;
-  width: 85vw;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 // Content
@@ -47,18 +47,23 @@ ion-toolbar {
   height: 8vh;
 }
 
-.event-img-text{
-    display: flex;
-
+.event-img-text {
+  display: flex;
 }
 
 .event-img {
-  border-radius: 50px 5px 5px 50px;
-  width: 18vw;
+  border-radius: 5px 5px 5px 5px;
+  width: 13vw;
   z-index: 6;
-  background-image: url(https://i.pravatar.cc/385);
+  background-image: url(https://i.pravatar.cc/285);
   background-size: cover;
-  height: 7vh;
+  height: 13vw;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.input-wrapper{
+  width: 100%;
 }
 
 .event-text {
@@ -67,7 +72,7 @@ ion-toolbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: .8rem;
+  margin-left: 0.8rem;
 }
 
 .event-text h2 {
@@ -80,4 +85,106 @@ ion-toolbar {
   font-size: 0.688rem;
   font-family: RalewayMediumItalic;
   margin: 0;
+}
+
+.acc-group {
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+svg.ionicon{
+  color: red;
+  background-color: red;
+}
+
+.acc{
+  margin-bottom: 1rem;
+}
+
+.acc-item {
+  outline: 2px solid var(--ion-color-secondary);
+}
+
+.buddys-figurer {
+  width: 3rem;
+  position: absolute;
+  bottom: 0;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-item-div {
+  margin-left: 0.8rem;
+}
+
+.titel-item {
+  font-family: RalewaySemiBold;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.navn-item {
+  font-family: RalewayRegular;
+  font-size: 0.75rem;
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+.dato-item {
+  font-family: InterRegular;
+  font-size: 0.75rem;
+  margin-top: 0;
+}
+
+.antal-item {
+  font-family: RalewayRegular;
+  font-size: 0.688rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.2rem;
+}
+
+.div-content {
+  color: black;
+  font-family: InterRegular;
+  font-size: 0.75rem;
+  margin: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.beskrivelse-text {
+  margin-top: 0.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.p-margin-bottom {
+  margin-bottom: 0;
+}
+
+.p-margin-top {
+  margin-top: 0.5rem;
+}
+
+.text-and-icon-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.acc-icons-container{
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+}
+
+.acc-icon {
+  font-size: 1.5rem;
+}
+
+ion-button {
+  margin-bottom: 0;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-/* import { PhotoService } from '../services/photo.service'; */
+import { signOut, Auth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab4',
@@ -8,9 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
 
-  constructor(
-    /* public photoService: PhotoService,  */
-  ) { }
+  constructor(private auth: Auth, private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,4 +34,10 @@ export class Tab4Page implements OnInit {
       },
     },
   ];
+}
+  signOut() {
+    signOut(this.auth).then(() => {
+      this.router.navigate(['/login'])
+    })
+  }
 }
