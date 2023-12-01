@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../services/photo.service';
+/* import { PhotoService } from '../services/photo.service'; */
 
 @Component({
   selector: 'app-tab4',
@@ -9,17 +9,17 @@ import { PhotoService } from '../services/photo.service';
 export class Tab4Page implements OnInit {
 
   constructor(
-    public photoService: PhotoService, 
+    /* public photoService: PhotoService,  */
   ) { }
 
   ngOnInit() {
   }
 
-  addPhotoToGallery () {
+  /* addPhotoToGallery () {
     this.photoService.addNewToGallery();
-  }
-}
-  /* public alertButtons = [
+  } */
+
+  public alertButtons = [
     {
       text: 'Rediger',
       role: 'rediger',
@@ -34,4 +34,5 @@ export class Tab4Page implements OnInit {
         console.log('slet profil');
       },
     },
-  ]; */
+  ];
+}
