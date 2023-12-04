@@ -47,4 +47,13 @@ export class OpretPage implements OnInit {
       this.isLoading = false;
     });
   }
+
+
+  // GoogleAuht() {
+  //   return this.AuthLogin(new auth.GoogleAuhtProvider()).then((res: any) => {
+  //     this.router.navigate(['dashboard']);
+  //   })
+  // }
+
+  
 }
