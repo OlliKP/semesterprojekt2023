@@ -1,14 +1,16 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page implements OnInit, OnChanges {
   events: any;
+  user: any;
 
   alertButtons = [
     {
@@ -27,11 +29,17 @@ export class Tab3Page implements OnInit {
 
   constructor(
     private alertController: AlertController,
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    private auth: Auth
   ) {}
 
   ngOnInit() {
     this.fetchEvents();
+  }
+
+  ngOnChanges() {
+    this.user = this.auth.currentUser;
+    console.log(this.auth.currentUser);
   }
 
   fetchEvents() {
@@ -81,6 +89,6 @@ export class Tab3Page implements OnInit {
   }
 
   deleteEvent(event: any): void {
-    this.firebaseService.delete_event(event.eventId)
+    this.firebaseService.delete_event(event.eventId);
   }
 }

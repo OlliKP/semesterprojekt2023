@@ -1,0 +1,98 @@
+body,
+ion-card,
+.bg-img {
+  background-color: var(--ion-color-success);
+  box-shadow: none;
+}
+
+.hd-img {
+  width: 80%;
+  height: 35vh;
+  margin-top: -3rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: -1;
+}
+
+h1 {
+  text-align: center;
+  margin-top: -3rem;
+  margin-bottom: -0.5rem;
+  font-family: RalewaySemiBold;
+  font-size: 3.8rem;
+  color: #000;
+}
+
+.logInd {
+  width: 100%;
+  margin-bottom: -1rem;
+}
+
+ion-input,
+.btn,
+.eller,
+.signUp {
+  color: #fff;
+}
+
+.kodeInput,
+.mailInput,
+.navnInput {
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.navnInput {
+  margin-top: -1rem;
+}
+
+.kodeInput,
+.mailInput {
+  margin-top: 1em;
+}
+
+.kodeInput {
+  margin-bottom: -1rem;
+}
+
+.logIndKnap,
+.eller,
+.signUp {
+  display: flex;
+  justify-content: center;
+}
+
+.logIndKnap,
+.opret {
+  margin: auto;
+}
+
+.opret {
+  margin-top: -1.5rem;
+}
+
+ion-button.signUp {
+  color: #000;
+  --background: none;
+}
+
+.signUp {
+  text-decoration: underline #000 1px;
+  color: var(--ion-color-sedondary);
+  font-size: 0.75rem;
+  --background: none;
+  --background-activated: none;
+  margin-top: -0.5rem;
+}
+
+.btn::part(native) {
+  border-radius: 50px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.google-icon {
+  padding-left: 0.5rem;
+}
