@@ -15,7 +15,11 @@
   </ion-buttons>
   <ion-buttons slot="primary">
     <ion-button>
-      <img class="profil-img" src="https://i.pravatar.cc/285" alt="Profilbillede" />
+      <img
+        class="profil-img"
+        src="https://i.pravatar.cc/285"
+        alt="Profilbillede"
+      />
     </ion-button>
   </ion-buttons>
   <h1>Samtale med x</h1>
@@ -24,19 +28,40 @@
 
 <ion-content color="secondary">
   <div class="message-area">
-    <div color="success" class="message sender">
-      <p>Hej! Jeg vil rigtig gerne være med til din og din venindes brætspil og rødvinsaften. Jeg har en lækker côtes du rhône, som jeg kan tage med. fdsafdsafdsafdsafdsafdsafdsa</p>
+    <div class="yours messages">
+      <div class="message last message sender">
+        <p>
+          Hej! Jeg vil rigtig gerne være med til din og din venindes brætspil og
+          rødvinsaften. Jeg har en lækker côtes du rhône, som jeg kan tage med.
+        </p>
+        <p class="message-time">D. 24/11, 19:58</p>
+      </div>
+    </div>
+    <div class="mine messages">
+      <div class="message last message reciever">
+        <p>Hvor lyder det bare hyggeligt, Bamse!</p>
+        <p class="message-time">D. 24/11, 20:01</p>
+      </div>
+    </div>
+
+    <!-- <div color="success" class="message sender">
+      <p>
+        Hej! Jeg vil rigtig gerne være med til din og din venindes brætspil og
+        rødvinsaften. Jeg har en lækker côtes du rhône, som jeg kan tage med.
+        fdsafdsafdsafdsafdsafdsafdsa
+      </p>
       <p class="message-time">D. 24/11, 19:58</p>
     </div>
     <div class="message reciever">
       <p>Hvor lyder det bare hyggeligt, Bamse</p>
       <p class="message-time">D. 24/11, 20:01</p>
-    </div>
+    </div> -->
   </div>
-  
+
   <div class="message-bar">
     <ion-input placeholder="Aa"></ion-input>
-    <button class="send-btn"><ion-icon color="light" name="send"></ion-icon></button>
+    <button class="send-btn">
+      <ion-icon color="light" name="send"></ion-icon>
+    </button>
   </div>
-  
 </ion-content>

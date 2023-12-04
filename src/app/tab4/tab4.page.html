@@ -1,5 +1,5 @@
 <ion-header collapse="condense">
-  <!-- <img class="mockup-img" src="../../assets/grafik/mockup-favoritter.png" alt=""> -->
+  
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -7,10 +7,63 @@
   />
 </ion-header>
 
-<ion-toolbar color="secondary">
+<ion-toolbar>
+
+  <ion-buttons color="secondary" slot="secondary">
+    <ion-button>
+      <ion-icon name="arrow-undo" color="primary"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-buttons slot="primary">
+    <ion-button>
+      <ion-icon color="light" name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
   <h1>Min profil</h1>
+
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
+<ion-content [fullscreen]="true">
+  <ion-card class="cardStr">
 
+      <ion-card-content>
+        <div>
+          <ion-item class="item-lines-none">
+            <img class="picture" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ion-item>
+
+          <div class="picKnap">
+            <ion-button class="btn">
+              Tilføj et billede
+              <ion-icon name="camera"></ion-icon>
+            </ion-button>
+          </div>
+    
+          <h2 class="navnTekst">Navn</h2>
+          <ion-item class="navnInput" color="medium">
+            <ion-input labelPlacement="stacked" value="Maria Christensen" readonly="true">
+            </ion-input>
+          </ion-item>
+        
+          <h2 class="mailTekst">Email</h2>
+          <ion-item class="mailInput" color="medium">
+            
+            <ion-input labelPlacement="stacked" value="mariachristiansen@gmail.com" readonly="true">
+            </ion-input>
+          </ion-item>
+    
+        </div>          
+
+        <div class="logUdKnap">
+          <ion-button class="btn" (click)="signOut()">
+            Log ud
+          </ion-button>
+        </div>
+
+    </ion-card-content>
+
+  </ion-card>
+  
 </ion-content>
