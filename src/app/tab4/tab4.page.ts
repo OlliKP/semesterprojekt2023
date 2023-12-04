@@ -17,28 +17,6 @@ export class Tab4Page implements OnInit {
   ngOnInit() {
   }
 
-  /* addPhotoToGallery () {
-    this.photoService.addNewToGallery();
-  } */
-
-  /* public alertButtons = [
-    {
-      text: 'Rediger',
-      role: 'rediger',
-      handler: () => {
-        console.log('Skal redigere');
-        this.editProfileComponent.isOpen = true;
-      },
-    },
-    {
-      text: 'Slet',
-      role: 'slet',
-      handler: () => {
-        console.log('slet profil');
-      },
-    },
-  ]; */
-
   signOut() {
     signOut(this.auth).then(() => {
       this.router.navigate(['/login'])
