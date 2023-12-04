@@ -19,7 +19,7 @@ export class Tab1Page {
   }
 
   fetchEvents() {
-    this.firebaseService.read_events().subscribe((data) => {
+    this.firebaseService.readEvents().subscribe((data) => {
       this.events = data.map((e) => {
         return {
           eventId: e.payload.doc.id,

@@ -17,6 +17,7 @@ export class Tab4Page implements OnInit {
   signOut() {
     signOut(this.auth).then(() => {
       this.router.navigate(['/login'])
+      localStorage.clear();
     })
   }
 }

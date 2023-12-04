@@ -20,7 +20,7 @@ export class AddEventComponent implements OnInit {
   event = {
     eventId: '',
     title: '',
-    profilId: '',
+    profilId: localStorage.getItem('token'),
     date: '',
     description: '',
     location: '',
@@ -46,7 +46,7 @@ export class AddEventComponent implements OnInit {
 
   save() {
     this.event.profilId = this.auth.currentUser.uid
-    this.firebaseService.create_event(this.event).then((response) => {
+    this.firebaseService.createEvent(this.event).then((response) => {
       console.log(response);
     });
     this.modal.dismiss('', 'confirm');
