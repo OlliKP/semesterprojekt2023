@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
+  user = {
+    displayName: localStorage.getItem('displayName'),
+    email: localStorage.getItem('email')
+  }
 
   constructor(private auth: Auth, private router: Router) { }
 
