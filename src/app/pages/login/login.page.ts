@@ -31,6 +31,7 @@ export class LoginPage implements OnInit {
       })
       .catch((err) => {
         this.isLoading = false;
+        alert('Der skete en fejl! - Prøv igen')
       });
   }
 }
