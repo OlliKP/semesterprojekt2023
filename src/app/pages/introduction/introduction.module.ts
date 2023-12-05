@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { IntroductionPageRoutingModule } from './introduction-routing.module';
 
 import { IntroductionPage } from './introduction.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 @NgModule({
   imports: [
@@ -15,6 +17,7 @@ import { IntroductionPage } from './introduction.page';
     IonicModule,
     IntroductionPageRoutingModule
   ],
-  declarations: [IntroductionPage]
+  declarations: [IntroductionPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IntroductionPageModule {}

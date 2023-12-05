@@ -1,0 +1,50 @@
+body,
+ion-card,
+.bg-img {
+  background-color: var(--ion-color-success);
+  box-shadow: none;
+}
+
+.hd-img {
+  width: 80%;
+  height: 35vh;
+  margin-top: -3rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: -1;
+}
+
+swiper-container {
+    width: 85vw;
+    z-index: 0;
+    --swiper-pagination-bullet-inactive-color: white;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: var(--ion-color-primary);
+    --swiper-pagination-bullet-size: 14px;
+}
+
+swiper-slide{
+    height: 23rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 25px;
+    font-family: RalewaySemiBold;
+}
+
+.test{
+    opacity: 0.8;
+}
+
+ion-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+}
+
+ion-button {
+    margin-top: -2.3rem;
+    z-index: 1;
+}

@@ -1,13 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>introduction</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="success" scrollY="false">
+  <div>
+    <img
+      class="hd-img"
+      src="../../assets/grafik/skyer.svg"
+      alt="Skyer svæver i baggrunden"
+    />
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">introduction</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <swiper-container
+    #swiper
+    (afterinit)="swiperReady()"
+    (slidechange)="swiperSlideChanged($event)"
+    [pagination]="true"
+    [clickable]="true"
+    [dynamicBullets]="false">
+    <swiper-slide>
+      <h1>Hej {{user.displayName}}</h1>
+    </swiper-slide>
+    <swiper-slide class="test">Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide class="test">Slide 4</swiper-slide>
+  </swiper-container>
+
+  <ion-buttons>
+    <ion-button (click)="goPrev()">
+      <ion-icon size="small" color="secondary" slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goNext()">
+      <ion-icon size="small" color="secondary" slot="icon-only" name="arrow-forward"></ion-icon>
+    </ion-button> 
+  </ion-buttons>
+
 </ion-content>
+
+<ion-footer collapse="condense">
+  <img
+    class="bg-img"
+    src="../../assets/grafik/header_u.baggrund.svg"
+    alt="Buddys figurer som svæver i skyerne"
+  />
+</ion-footer>
