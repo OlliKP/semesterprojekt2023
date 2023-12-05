@@ -5,6 +5,7 @@ import { CalendarMode } from 'ionic2-calendar';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
@@ -34,7 +35,7 @@ export class EditEventComponent  implements OnInit {
 
   save() {
     this.modal.dismiss('', 'confirm');
-    this.firebaseService.update_event(this.event.eventId, this.event);
+    this.firebaseService.updateEvent(this.event.eventId, this.event);
   }
 
   datePicked(value: any) {

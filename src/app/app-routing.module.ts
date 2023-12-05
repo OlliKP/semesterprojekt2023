@@ -21,9 +21,26 @@ const routes: Routes = [
   {
     path: 'edit-event',
     loadChildren: () => import('./components/edit-event/edit-event.component').then( m => m.EditEventComponent)
-  },  {
+  },
+  {
     path: 'introduction',
     loadChildren: () => import('./pages/introduction/introduction.module').then( m => m.IntroductionPageModule)
+  },
+  {
+    path: 'add-event',
+    loadChildren: () => import('./components/add-event/add-event.component').then( m => m.AddEventComponent)
+  },
+  {
+    path: 'edit-event',
+    loadChildren: () => import('./components/edit-event/edit-event.component').then( m => m.EditEventComponent)
+  },  
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'opret',
+    loadChildren: () => import('./pages/opret/opret.module').then( m => m.OpretPageModule)
   }
 
 

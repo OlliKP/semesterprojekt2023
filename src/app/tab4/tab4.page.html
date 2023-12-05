@@ -1,5 +1,4 @@
 <ion-header collapse="condense">
-  <!-- <img class="mockup-img" src="../../assets/grafik/mockup-favoritter.png" alt=""> -->
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -7,10 +6,51 @@
   />
 </ion-header>
 
-<ion-toolbar color="secondary">
+<ion-toolbar>
+  <ion-buttons color="secondary" slot="secondary">
+    <ion-button routerLink="/">
+      <ion-icon name="arrow-undo" color="primary"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-buttons slot="primary">
+    <ion-button id="open-modal-edit-profile">
+      <ion-icon color="light" name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
   <h1>Min profil</h1>
 </ion-toolbar>
 
-<ion-content color="secondary" [fullscreen]="true">
+<ion-content [fullscreen]="true">
+  <ion-card class="cardStr">
+    <ion-card-content>
+      <div>
+        <ion-item class="item-lines-none">
+          <img
+            class="picture"
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+          />
+        </ion-item>
 
+        <div class="picKnap">
+          <ion-button class="btn">
+            Tilføj et billede
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </div>
+
+        <h2 class="navnTekst">Navn</h2>
+        <div class="navnInput">{{user.displayName}}</div>
+
+        <h2 class="mailTekst">Email</h2>
+        <div class="mailInput">{{user.email}}</div>
+      </div>
+
+      <div class="logUdKnap">
+        <ion-button class="btn" (click)="signOut()"> Log ud </ion-button>
+      </div> </ion-card-content
+    ><app-edit-profile></app-edit-profile>
+  </ion-card>
 </ion-content>

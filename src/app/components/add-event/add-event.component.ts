@@ -3,6 +3,7 @@ import { IonModal } from '@ionic/angular';
 import { format, parseISO } from 'date-fns';
 import { CalendarMode } from 'ionic2-calendar';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-add-event',
@@ -10,22 +11,24 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   styleUrls: ['./add-event.component.scss'],
 })
 export class AddEventComponent implements OnInit {
-
+  
+  
+  constructor(private firebaseService: FirebaseService, private auth: Auth) {}
+  
+  ngOnInit() {}
+  
   event = {
     eventId: '',
     title: '',
-    profilId: 0,
+    profilId: localStorage.getItem('token'),
     date: '',
     description: '',
     location: '',
     category: '',
-    minPersons: 0,
-    maxPersons: 0,
+    minPersons: null,
+    maxPersons: null,
+    displayName: this.auth.currentUser.displayName,
   };
-
-  constructor(private firebaseService: FirebaseService) {}
-
-  ngOnInit() {}
 
   @ViewChild(IonModal) modal: IonModal;
 
@@ -43,7 +46,8 @@ export class AddEventComponent implements OnInit {
   }
 
   save() {
-    this.firebaseService.create_event(this.event).then((response) => {
+    this.event.profilId = this.auth.currentUser.uid
+    this.firebaseService.createEvent(this.event).then((response) => {
       console.log(response);
     });
     this.modal.dismiss('', 'confirm');

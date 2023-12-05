@@ -1,0 +1,72 @@
+<ion-content color="success" scrollY="false">
+  <div>
+    <img
+      class="hd-img"
+      src="../../assets/grafik/skyer.svg"
+      alt="Skyer svæver i baggrunden"
+    />
+  </div>
+
+  <ion-header>
+    <h1>Buddys</h1>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-content>
+      <div class="logInd">
+        <ion-item class="mailInput" color="medium">
+          <ion-input placeholder="E-mail" type="email" [(ngModel)]="user.email">
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="kodeInput" color="medium">
+          <ion-input
+            placeholder="Adgangskode"
+            type="password"
+            [(ngModel)]="user.password"
+          >
+          </ion-input>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <div class="logIndKnap">
+        <ion-button (click)="login()" class="btn">
+          <span *ngIf="!isLoading">Log ind</span>
+          <ion-spinner
+            *ngIf="isLoading"
+            color="light"
+            name="crescent"
+          ></ion-spinner>
+        </ion-button>
+      </div>
+      <div class="eller">
+        <p style="color: black;">Eller</p>
+      </div>
+      <div class="logIndKnap">
+        <ion-button class="btn" (click)="signInGoogle()">
+          Log ind med Google
+          <img class="google_icon" src="../../../assets/icon/google_icon.svg" alt="Google ikon">
+        </ion-button>
+      </div>
+      <ion-button
+        class="signUp"
+        [routerLink]="['/opret']"
+        routerDirection="forward"
+      >
+        Opret en profil
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer collapse="condense">
+  <img
+    class="bg-img"
+    src="../../assets/grafik/header_u.baggrund.svg"
+    alt="Buddys figurer som svæver i skyerne"
+  />
+</ion-footer>

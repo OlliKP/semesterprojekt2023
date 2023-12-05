@@ -1,0 +1,62 @@
+<ion-content>
+
+  <ion-modal trigger="open-modal-edit-profile">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Personlige oplysninger</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content color="secondary" scrollY="false">
+  <ion-list [inset]="true" class="redigerFelter">
+    
+    <ion-item>
+      <p slot="start">
+        Navn
+      </p>
+      <ion-input
+      value="Maria Christiansen"
+      aria-label="Custom input"
+      class="custom ion-text-right"
+      ></ion-input>  
+    </ion-item>
+
+    <ion-item>
+      <p slot="start">
+        E-mail
+      </p>
+      <ion-input type="email" value="mariachristiansen@gmail.com" class="ion-text-right">
+      </ion-input>
+    </ion-item>
+
+  <ion-toolbar class="tool">
+    <ion-buttons class="gemSluk" slot="start">
+      <ion-button (click)="cancel()">Annuller</ion-button>
+    </ion-buttons>
+    <ion-buttons class="gemSluk" slot="end">
+      <ion-button (click)="save()" [strong]="true">Gem</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-list>
+  
+<ion-buttons class="pswDel">
+  <ion-button
+    class="skiftSlet slet"
+    (click)="deleteAlert()">
+    Slet profil
+  </ion-button>
+  <ion-button class="skiftSlet"
+      id="open-modal-password"
+      >
+      Skift kode
+  </ion-button>
+</ion-buttons>
+  
+ 
+
+<app-password class="pswDel"></app-password>
+</ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

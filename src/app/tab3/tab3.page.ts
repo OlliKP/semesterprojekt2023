@@ -1,14 +1,16 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnChanges } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { FirebaseService } from '../services/firebase.service';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
 })
-export class Tab3Page implements OnInit {
+export class Tab3Page implements OnInit, OnChanges {
   events: any;
+  user: any;
 
   alertButtons = [
     {
@@ -27,27 +29,25 @@ export class Tab3Page implements OnInit {
 
   constructor(
     private alertController: AlertController,
-    private firebaseService: FirebaseService
+    private firebaseService: FirebaseService,
+    private auth: Auth
   ) {}
 
   ngOnInit() {
-    this.fetchEvents();
+    this.fetchOwnEvents();
+
   }
 
-  fetchEvents() {
-    this.firebaseService.read_events().subscribe((data) => {
+  ngOnChanges() {
+    this.user = this.auth.currentUser;
+    console.log(this.auth.currentUser);
+  }
+
+  fetchOwnEvents() {
+    this.firebaseService.readEventsByUserId().subscribe((data) => {
       this.events = data.map((e) => {
-        return {
-          eventId: e.payload.doc.id,
-          title: e.payload.doc.data()['title'],
-          date: e.payload.doc.data()['date'],
-          description: e.payload.doc.data()['description'],
-          location: e.payload.doc.data()['location'],
-          category: e.payload.doc.data()['category'],
-          minPersons: e.payload.doc.data()['minPersons'],
-          maxPersons: e.payload.doc.data()['maxPersons'],
-        };
-      });
+        return e;
+      })
     });
   }
 
@@ -81,6 +81,6 @@ export class Tab3Page implements OnInit {
   }
 
   deleteEvent(event: any): void {
-    this.firebaseService.delete_event(event.eventId)
+    this.firebaseService.deleteEvent(event.eventId);
   }
 }
