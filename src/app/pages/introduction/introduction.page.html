@@ -1,0 +1,46 @@
+<ion-content color="success" scrollY="false">
+  <div>
+    <img
+      class="hd-img"
+      src="../../assets/grafik/skyer.svg"
+      alt="Skyer svæver i baggrunden"
+    />
+  </div>
+
+  <swiper-container
+    #swiper
+    (afterinit)="swiperReady()"
+    (slidechange)="swiperSlideChanged($event)"
+    [pagination]="true"
+    [clickable]="true"
+    [dynamicBullets]="false">
+    <swiper-slide>
+      <img class="profile-img" src="{{user.photoURL}}" alt="">
+      <h1>Hej {{user.displayName}}</h1>
+    </swiper-slide>
+    <swiper-slide><h1>Mere introduktion her</h1></swiper-slide>
+    <swiper-slide><h1>og lidt mere info her</h1></swiper-slide>
+    <swiper-slide>
+      <h1>Lad os finde nogle nye Buddys!</h1>
+      <ion-button routerLink="/" class="get-started">Kom igang!</ion-button>
+    </swiper-slide>
+  </swiper-container>
+
+  <ion-buttons class="arrows">
+    <ion-button (click)="goPrev()">
+      <ion-icon size="small" color="secondary" slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goNext()">
+      <ion-icon size="small" color="secondary" slot="icon-only" name="arrow-forward"></ion-icon>
+    </ion-button> 
+  </ion-buttons>
+
+</ion-content>
+
+<ion-footer collapse="condense">
+  <img
+    class="bg-img"
+    src="../../assets/grafik/header_u.baggrund.svg"
+    alt="Buddys figurer som svæver i skyerne"
+  />
+</ion-footer>

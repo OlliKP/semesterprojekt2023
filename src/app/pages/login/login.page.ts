@@ -30,7 +30,7 @@ export class LoginPage implements OnInit {
         localStorage.setItem('token', response.user.uid)
 
         setTimeout(() => {
-          this.router.navigate(['/'])
+          this.router.navigate(['/introduction'])
         }, 1000);
         console.log(response);
       })
