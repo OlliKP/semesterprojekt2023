@@ -3,13 +3,7 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Annuller</ion-button>
-          </ion-buttons>
           <ion-title>Opret begivenhed</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="save()" [strong]="true">Gem</ion-button>
-          </ion-buttons>
         </ion-toolbar>
       </ion-header>
 
@@ -95,6 +89,16 @@
               placeholder="Max. personer"
             />
           </ion-item>
+
+          <ion-toolbar class="tool">
+            <ion-buttons class="gemSluk" slot="start">
+              <ion-button (click)="cancel()">Annuller</ion-button>
+            </ion-buttons>
+            <ion-buttons class="gemSluk" slot="end">
+              <ion-button (click)="save()" [strong]="true">Gem</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+
         </ion-list>
       </ion-content>
     </ng-template>

@@ -21,5 +21,8 @@ ion-item::part(native){
 
 ion-content::part(scroll){
     padding-bottom: 0;
-
 }
+
+ion-toolbar.tool {
+    --background: var(--ion-color-primary) !important;
+  }
