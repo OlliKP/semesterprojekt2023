@@ -39,7 +39,7 @@ export class EditProfileComponent  implements OnInit {
         },
         {
           text: 'Ja',
-          cssClass: 'alert-button-cancel',
+          cssClass: 'test',
           handler: () => {
             this.deleteProfile();
           },

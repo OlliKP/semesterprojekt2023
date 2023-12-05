@@ -83,6 +83,7 @@ img {
 
 .navnInput, .mailInput {
   border-radius: 5px;
+
 }
 
 ion-input {
@@ -98,4 +99,8 @@ ion-input {
 
 ion-content::part(scroll){
   padding-bottom: 0;  
+}
+
+ion-button::part(native) {
+  border-radius: 50px;
 }

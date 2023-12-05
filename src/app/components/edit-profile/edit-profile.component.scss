@@ -2,18 +2,6 @@ ion-modal{
     margin-top: 10rem;
 }
 
-ion-input.custom {
-    --background: #373737;
-    --color: #fff;
-    --placeholder-color: #ddd;
-    --placeholder-opacity: 0.8;
-  
-    --padding-bottom: 10px;
-    --padding-end: 10px;
-    --padding-start: 10px;
-    --padding-top: 10px;
-  }
-
   .skiftSlet::part(native) {
     background-color: var(--ion-color-primary);
     color: #fff;
@@ -27,7 +15,7 @@ ion-input.custom {
   .skiftSlet {
     height: 5vh;
     width: 35vw;
-    margin: 5em auto 100em auto;
+    margin: 10em auto 100em auto;
     display: block;
   }
 
@@ -35,14 +23,21 @@ ion-input.custom {
     color: var(--ion-color-secondary);
   }
 
-  .button-clear::part(native) {
-    border-radius: 14px;
-  }
-
   .redigerFelter {
     margin-top: 10em;
+    width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .mail {
     text-align: end;
+  }
+
+  ion-toolbar.tool {
+    --background: var(--ion-color-primary) !important;
+  }
+
+  ion-button::part(native) {
+    border-radius: 50px;
   }
