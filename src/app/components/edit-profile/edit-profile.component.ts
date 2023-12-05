@@ -8,6 +8,10 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent  implements OnInit {
+  user = {
+    displayName: localStorage.getItem('displayName'),
+    email: localStorage.getItem('email')
+  }
 
   @Input() event: any;
 
