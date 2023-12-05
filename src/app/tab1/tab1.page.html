@@ -7,9 +7,10 @@
 </ion-header>
 
 <ion-toolbar color="secondary">
-  <ion-buttons slot="start">
+  <ion-buttons slot="start" (click)="toggleFavorites()">
     <ion-button>
-      <ion-icon slot="icon-only" name="star"></ion-icon>
+      <ion-icon *ngIf="showFavorites" slot="icon-only" name="star" style="color: #FFD056"></ion-icon>
+      <ion-icon *ngIf="!showFavorites" slot="icon-only" name="star"></ion-icon>
     </ion-button>
   </ion-buttons>
   <h1>Alle Begivenheder</h1>
@@ -27,7 +28,7 @@
         />
         <div class="text-item-div">
           <h2 class="titel-item">{{event.title}}</h2>
-          <h3 class="navn-item">{{event.title}}</h3>
+          <h3 class="navn-item">{{event.displayName}}</h3>
           <h4 class="dato-item">{{event.date}}</h4>
         </div>
         <div class="buddys-figurer">
@@ -54,7 +55,8 @@
             <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}</p>
           </div>
           <div class="acc-icons-container">
-            <ion-icon class="acc-icon" color="warning" name="star-outline"></ion-icon>
+            <ion-icon *ngIf="!event.favoritterId" class="acc-icon" color="warning" name="star-outline" (click)="makeFavorite(event)"></ion-icon>
+            <ion-icon *ngIf="event.favoritterId" class="acc-icon" color="warning" style="color: #FFD056" name="star" (click)="undoFavorite(event)"></ion-icon>
             <ion-button size="small">Tilmeld
               <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
             </ion-button>          

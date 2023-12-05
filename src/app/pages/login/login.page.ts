@@ -25,6 +25,10 @@ export class LoginPage implements OnInit {
     this.isLoading = true;
     signInWithEmailAndPassword(this.auth, this.user.email, this.user.password)
       .then((response) => {
+        localStorage.setItem('displayName', response.user.displayName)
+        localStorage.setItem('email', response.user.email)
+        localStorage.setItem('token', response.user.uid)
+
         setTimeout(() => {
           this.router.navigate(['/'])
         }, 1000);
