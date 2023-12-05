@@ -5,6 +5,7 @@ import { CalendarMode } from 'ionic2-calendar';
 import { FirebaseService } from 'src/app/services/firebase.service';
 
 
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',

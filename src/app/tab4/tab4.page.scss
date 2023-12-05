@@ -74,6 +74,35 @@ img {
 }
 
 .navnTekst {
+  margin-top: 2em;
+}
+
+.mailTekst {
+  margin-top: 0.5em;
+}
+
+.navnInput, .mailInput {
+  border-radius: 5px;
+
+}
+
+ion-input {
+  color: #fff;
+}
+
+.picture {
+  height: 15vh;
+  width: 35vw;
+  margin: auto;
+    display: block;
+}
+
+ion-content::part(scroll){
+  padding-bottom: 0;  
+}
+
+ion-button::part(native) {
+  border-radius: 50px;
   margin-top: 1.5rem;
   margin-bottom: 0.2rem;
   font-family: InterSemiBold;
