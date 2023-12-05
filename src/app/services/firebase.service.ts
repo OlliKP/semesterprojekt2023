@@ -40,11 +40,12 @@ export class FirebaseService {
   googleSignIn() {
     return this.fireauth.signInWithPopup(new GoogleAuthProvider()).then(
       (res) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/introduction']);
         console.log(res.user);
         localStorage.setItem('token', res.user?.uid);
         localStorage.setItem('displayName', res.user?.displayName);
         localStorage.setItem('email', res.user?.email);
+        localStorage.setItem('photoURL', res.user?.photoURL);
       },
       (err) => {
         alert(err.message);

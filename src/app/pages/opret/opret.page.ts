@@ -38,7 +38,7 @@ export class OpretPage implements OnInit {
         displayName: this.user.name,
       }).then((updateResponse) => {
         setTimeout(() => {
-          this.router.navigate(['/'])
+          this.router.navigate(['/introduction'])
         }, 1000);
       });
     })

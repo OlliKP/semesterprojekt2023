@@ -9,6 +9,8 @@ import Swiper from 'swiper';
 export class IntroductionPage {
 user = {
   displayName: localStorage.getItem('displayName'),
+  photoURL: localStorage.getItem('photoURL'),
+
 }
 
   @ViewChild('swiper')

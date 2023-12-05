@@ -24,27 +24,43 @@ swiper-container {
     --swiper-pagination-bullet-size: 14px;
 }
 
+h1 {
+    font-size: 25px;
+    font-family: RalewaySemiBold;
+    text-align: center;
+}
+
 swiper-slide{
     height: 23rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    font-size: 25px;
-    font-family: RalewaySemiBold;
 }
 
-.test{
-    opacity: 0.8;
-}
-
-ion-buttons {
+ion-buttons.arrows {
     display: flex;
     justify-content: center;
+    text-align: center;
     gap: 8rem;
 }
 
-ion-button {
+ion-buttons.arrows > ion-button {
     margin-top: -2.3rem;
     z-index: 1;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.get-started {
+    font-family: InterSemiBold;
+    color: white;
+    --padding-start: 2.5rem;
+    --padding-end: 2.5rem;
+    margin-top: 1.5rem;
 }
