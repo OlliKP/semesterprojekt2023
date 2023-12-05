@@ -18,7 +18,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({animated: false}),
     AppRoutingModule,
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),

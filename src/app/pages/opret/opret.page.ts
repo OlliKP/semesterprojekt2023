@@ -41,6 +41,12 @@ export class OpretPage implements OnInit {
           this.router.navigate(['/'])
         }, 1000);
       });
+    })
+    .catch((err) => {
+      alert('Der skete en fejl! Prøv igen')
+      this.isLoading = false;
     });
   }
+
+  
 }

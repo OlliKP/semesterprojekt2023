@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Auth, signOut } from '@angular/fire/auth';
+import { signOut, Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
+  user = {
+    displayName: localStorage.getItem('displayName'),
+    email: localStorage.getItem('email')
+  }
 
-  constructor(
-    private auth: Auth,
-    private router: Router,
-    ) { }
+  constructor(private auth: Auth, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,6 +21,7 @@ export class Tab4Page implements OnInit {
   signOut() {
     signOut(this.auth).then(() => {
       this.router.navigate(['/login'])
+      localStorage.clear();
     })
   }
 }

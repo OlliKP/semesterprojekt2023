@@ -34,7 +34,8 @@ export class Tab3Page implements OnInit, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.fetchEvents();
+    this.fetchOwnEvents();
+
   }
 
   ngOnChanges() {
@@ -42,20 +43,11 @@ export class Tab3Page implements OnInit, OnChanges {
     console.log(this.auth.currentUser);
   }
 
-  fetchEvents() {
-    this.firebaseService.read_events().subscribe((data) => {
+  fetchOwnEvents() {
+    this.firebaseService.readEventsByUserId().subscribe((data) => {
       this.events = data.map((e) => {
-        return {
-          eventId: e.payload.doc.id,
-          title: e.payload.doc.data()['title'],
-          date: e.payload.doc.data()['date'],
-          description: e.payload.doc.data()['description'],
-          location: e.payload.doc.data()['location'],
-          category: e.payload.doc.data()['category'],
-          minPersons: e.payload.doc.data()['minPersons'],
-          maxPersons: e.payload.doc.data()['maxPersons'],
-        };
-      });
+        return e;
+      })
     });
   }
 
@@ -89,6 +81,6 @@ export class Tab3Page implements OnInit, OnChanges {
   }
 
   deleteEvent(event: any): void {
-    this.firebaseService.delete_event(event.eventId);
+    this.firebaseService.deleteEvent(event.eventId);
   }
 }
