@@ -1,5 +1,4 @@
 <ion-header collapse="condense">
-  
   <img
     class="header-img"
     src="../../assets/grafik/header-smaller.svg"
@@ -8,7 +7,6 @@
 </ion-header>
 
 <ion-toolbar>
-
   <ion-buttons color="secondary" slot="secondary">
     <ion-button>
       <ion-icon name="arrow-undo" color="primary"></ion-icon>
@@ -22,47 +20,37 @@
   </ion-buttons>
 
   <h1>Min profil</h1>
-
 </ion-toolbar>
 
 <ion-content [fullscreen]="true">
   <ion-card class="cardStr">
+    <ion-card-content>
+      <div>
+        <ion-item class="item-lines-none">
+          <img
+            class="picture"
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+          />
+        </ion-item>
 
-      <ion-card-content>
-        <div>
-          <ion-item class="item-lines-none">
-            <img class="picture" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-          </ion-item>
-
-          <div class="picKnap">
-            <ion-button class="btn">
-              Tilføj et billede
-              <ion-icon name="camera"></ion-icon>
-            </ion-button>
-          </div>
-    
-          <h2 class="navnTekst">Navn</h2>
-          <ion-item class="navnInput" color="medium">
-            <ion-input labelPlacement="stacked" value="{{user.displayName}}" readonly="true">
-            </ion-input>
-          </ion-item>
-        
-          <h2 class="mailTekst">Email</h2>
-          <ion-item class="mailInput" color="medium">
-            <ion-input labelPlacement="stacked" value="{{user.email}}" readonly="true">
-            </ion-input>
-          </ion-item>
-    
-        </div>          
-
-        <div class="logUdKnap">
-          <ion-button class="btn" (click)="signOut()">
-            Log ud
+        <div class="picKnap">
+          <ion-button class="btn">
+            Tilføj et billede
+            <ion-icon name="camera"></ion-icon>
           </ion-button>
         </div>
 
-    </ion-card-content>
+        <h2 class="navnTekst">Navn</h2>
+        <div class="navnInput">{{user.displayName}}</div>
 
+        <h2 class="mailTekst">Email</h2>
+        <div class="mailInput">{{user.email}}</div>
+      </div>
+
+      <div class="logUdKnap">
+        <ion-button class="btn" (click)="signOut()"> Log ud </ion-button>
+      </div>
+    </ion-card-content>
   </ion-card>
-  
 </ion-content>
