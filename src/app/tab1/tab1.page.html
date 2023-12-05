@@ -7,13 +7,20 @@
 </ion-header>
 
 <ion-toolbar color="secondary">
-  <ion-buttons slot="start" (click)="toggleFavorites()">
+  <ion-buttons slot="secondary" (click)="toggleFavorites()">
     <ion-button>
       <ion-icon *ngIf="showFavorites" slot="icon-only" name="star" style="color: #FFD056"></ion-icon>
       <ion-icon *ngIf="!showFavorites" slot="icon-only" name="star"></ion-icon>
     </ion-button>
   </ion-buttons>
+  <ion-buttons aria-hidden="true" class="filter" slot="primary">
+    <ion-button>
+      <ion-icon name="filter"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
   <h1>Alle Begivenheder</h1>
+  
 </ion-toolbar>
 
 
