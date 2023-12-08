@@ -57,7 +57,3 @@ export class EditProfileComponent  implements OnInit {
   }
 
 }
-
-/* changePassword() {
-    this.modal.navigate(['/password'])
-} */
