@@ -5,9 +5,7 @@ import { Router } from '@angular/router';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { Observable, forkJoin } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
-import {
-  Auth
-} from '@angular/fire/auth';
+import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +15,7 @@ export class FirebaseService {
     private firestore: AngularFirestore,
     private fireauth: AngularFireAuth,
     private router: Router,
-    private auth: Auth,
+    private auth: Auth
   ) {}
 
   createEvent(record) {
@@ -84,8 +82,6 @@ export class FirebaseService {
       );
   }
 
-
-
   createFavorite(record) {
     return this.firestore.collection('Favoritter').add(record);
   }
@@ -104,35 +100,139 @@ export class FirebaseService {
         switchMap((data) => {
           const observables = data.docs.map((e) => {
             const opslagId = JSON.parse(JSON.stringify(e.data())).Opslag_ID;
-            const favoritterId = e.id;            
+            const favoritterId = e.id;
             // Return an observable for each inner Firestore call
-            
-            return this.firestore.collection('Opslag').doc(opslagId).get()
+
+            return this.firestore
+              .collection('Opslag')
+              .doc(opslagId)
+              .get()
               .pipe(
-                map(innerData => ({
+                map((innerData) => ({
                   favoritterId,
                   eventId: opslagId,
-                  title: JSON.parse(JSON.stringify(innerData.data()))?.title || '',
-                  date: JSON.parse(JSON.stringify(innerData.data()))?.date || null,
-                  description: JSON.parse(JSON.stringify(innerData.data()))?.description || '',
-                  location: JSON.parse(JSON.stringify(innerData.data()))?.location || '',
-                  category: JSON.parse(JSON.stringify(innerData.data()))?.category || '',
-                  minPersons: JSON.parse(JSON.stringify(innerData.data()))?.minPersons || 0,
-                  maxPersons: JSON.parse(JSON.stringify(innerData.data()))?.maxPersons || 0,
-                  profilId: JSON.parse(JSON.stringify(innerData.data()))?.profilId || '',
-                  displayName: JSON.parse(JSON.stringify(innerData.data()))?.displayName || '',
-                  // Include other properties as needed
+                  title:
+                    JSON.parse(JSON.stringify(innerData.data()))?.title || '',
+                  date:
+                    JSON.parse(JSON.stringify(innerData.data()))?.date || null,
+                  description:
+                    JSON.parse(JSON.stringify(innerData.data()))?.description ||
+                    '',
+                  location:
+                    JSON.parse(JSON.stringify(innerData.data()))?.location ||
+                    '',
+                  category:
+                    JSON.parse(JSON.stringify(innerData.data()))?.category ||
+                    '',
+                  minPersons:
+                    JSON.parse(JSON.stringify(innerData.data()))?.minPersons ||
+                    0,
+                  maxPersons:
+                    JSON.parse(JSON.stringify(innerData.data()))?.maxPersons ||
+                    0,
+                  profilId:
+                    JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
+                    '',
+                  displayName:
+                    JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
+                    '',
                 }))
               );
           });
-  
+
           // Use forkJoin to wait for all inner observables to complete
           return forkJoin(observables);
         })
       );
   }
 
-  getUserByUid(uid) {
-  } 
-  
+  // Chat
+
+  createChat(record) {
+    return this.firestore.collection('Samtaler').add(record);
+  }
+
+  readChats() {
+    return this.firestore
+      .collection('Samtaler', (ref) =>
+        ref.where('Profil_ID', '==', localStorage.getItem('token'))
+      )
+      .get()
+      .pipe(
+        switchMap((data) => {
+          const observables = data.docs.map((e) => {
+            const opslagId = JSON.parse(JSON.stringify(e.data())).Opslag_ID;
+            // Return an observable for each inner Firestore call
+
+            return this.firestore
+              .collection('Opslag')
+              .doc(opslagId)
+              .get()
+              .pipe(
+                map((innerData) => ({
+                  eventId: opslagId,
+                  title:
+                    JSON.parse(JSON.stringify(innerData.data()))?.title || '',
+                  profilId:
+                    JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
+                    '',
+                  displayName:
+                    JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
+                    '',
+                }))
+              );
+          });
+
+          // Use forkJoin to wait for all inner observables to complete
+          return forkJoin(observables);
+        })
+      );
+  }
+
+  readChats2(){
+    return this.firestore
+      .collection('Samtaler', (ref) =>
+        ref.where('Profil_ID', '==', localStorage.getItem('token'))
+      )
+      .get()
+      .pipe(
+        switchMap((data) => {
+          const observables = data.docs.map((e) => {
+            const opslagId = JSON.parse(JSON.stringify(e.data())).Opslag_ID;
+            // Return an observable for each inner Firestore call
+
+            return this.firestore
+              .collection('Opslag', (ref) => ref.where('profilId', '==', localStorage.getItem('token')))
+            
+              .get()
+              .subscribe((res) => {
+                res.forEach((doc) => {
+                  let data = JSON.parse(JSON.stringify(doc.data()));
+                  console.log(data)
+                  return {
+                    message: data.message,
+                    time: data.time.seconds*1000,
+                    sender: data.sender
+                  }
+                })
+              })
+          });
+
+          // Use forkJoin to wait for all inner observables to complete
+          return forkJoin(observables);
+        })
+      );
+  }
+
+  createMessage(record) {
+    return this.firestore.collection('Samtale_info').add(record);
+  }
+
+  readChatMessages(samtaleId) {
+    return this.firestore
+      .collection('Samtale_info', (ref) =>
+        ref.where('samtalerId', '==', samtaleId)
+      )
+      .get();
+  }
 }

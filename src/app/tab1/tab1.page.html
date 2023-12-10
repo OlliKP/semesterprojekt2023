@@ -64,7 +64,7 @@
           <div class="acc-icons-container">
             <ion-icon *ngIf="!event.favoritterId" class="acc-icon" color="warning" name="star-outline" (click)="makeFavorite(event)"></ion-icon>
             <ion-icon *ngIf="event.favoritterId" class="acc-icon" color="warning" style="color: #FFD056" name="star" (click)="undoFavorite(event)"></ion-icon>
-            <ion-button size="small">Tilmeld
+            <ion-button (click)="startChat(event.eventId)" size="small">Tilmeld
               <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
             </ion-button>          
           </div>

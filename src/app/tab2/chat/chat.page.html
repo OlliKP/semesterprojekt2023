@@ -9,7 +9,7 @@
 
 <ion-toolbar color="secondary">
   <ion-buttons slot="secondary">
-    <ion-button slot="secondary" routerLink="/">
+    <ion-button slot="secondary" routerLink="/tabs/tab2">
       <ion-icon name="arrow-undo" color="primary"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -26,41 +26,20 @@
 </ion-toolbar>
 <h2 class="event-h2">Brætspil & Rødvin</h2>
 
-<ion-content color="secondary">
+<ion-content color="secondary" class="message-content">
   <div class="message-area">
-    <div class="yours messages">
-      <div class="message last message sender">
-        <p>
-          Hej! Jeg vil rigtig gerne være med til din og din venindes brætspil og
-          rødvinsaften. Jeg har en lækker côtes du rhône, som jeg kan tage med.
-        </p>
-        <p class="message-time">D. 24/11, 19:58</p>
+    <span *ngFor="let message of messages">
+      <div [class]="getMessageOuterDisplay(message)">
+        <div [class]="getMessageInnerDisplay(message)">
+          <p>{{message.message}}</p>
+          <p class="message-time">{{message.time | date: 'dd/MM HH:mm'}}</p>
+        </div>
       </div>
-    </div>
-    <div class="mine messages">
-      <div class="message last message reciever">
-        <p>Hvor lyder det bare hyggeligt, Bamse!</p>
-        <p class="message-time">D. 24/11, 20:01</p>
-      </div>
-    </div>
-
-    <!-- <div color="success" class="message sender">
-      <p>
-        Hej! Jeg vil rigtig gerne være med til din og din venindes brætspil og
-        rødvinsaften. Jeg har en lækker côtes du rhône, som jeg kan tage med.
-        fdsafdsafdsafdsafdsafdsafdsa
-      </p>
-      <p class="message-time">D. 24/11, 19:58</p>
-    </div>
-    <div class="message reciever">
-      <p>Hvor lyder det bare hyggeligt, Bamse</p>
-      <p class="message-time">D. 24/11, 20:01</p>
-    </div> -->
+    </span>
   </div>
-
   <div class="message-bar">
-    <ion-input placeholder="Aa"></ion-input>
-    <button class="send-btn">
+    <ion-input placeholder="Skriv besked her" [(ngModel)]="message"></ion-input>
+    <button class="send-btn" (click)="sendMessage()">
       <ion-icon color="light" name="send"></ion-icon>
     </button>
   </div>
