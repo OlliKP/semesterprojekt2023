@@ -13,7 +13,7 @@
 
 <ion-content color="secondary" [fullscreen]="false">
   <div *ngFor="let chat of chats" class="acc-group">
-    <div class="list-item" [routerLink]="['chat/' + chat.eventId]">
+    <div class="list-item" [routerLink]="['chat/' + chat.samtalerId]">
       <div class="list-item-content">
         <img class="event-img" src="https://i.pravatar.cc/285" alt="Profilbillede" />
         <div class="text-item-div">

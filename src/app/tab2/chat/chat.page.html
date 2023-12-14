@@ -26,16 +26,16 @@
 </ion-toolbar>
 <h2 class="event-h2">Brætspil & Rødvin</h2>
 
-<ion-content color="secondary" class="message-content">
+<ion-content color="secondary" id="message-content" class="message-content">
   <div class="message-area">
-    <span *ngFor="let message of messages">
+    <div *ngFor="let message of messages">
       <div [class]="getMessageOuterDisplay(message)">
         <div [class]="getMessageInnerDisplay(message)">
           <p>{{message.message}}</p>
           <p class="message-time">{{message.time | date: 'dd/MM HH:mm'}}</p>
         </div>
       </div>
-    </span>
+    </div>
   </div>
   <div class="message-bar">
     <ion-input placeholder="Skriv besked her" [(ngModel)]="message"></ion-input>

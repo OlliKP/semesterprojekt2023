@@ -13,19 +13,23 @@ export class Tab2Page implements OnInit {
   constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit() {
-    this.fetchChats()
+    this.fetchChatsStartedByMe()
 
-    this.firebaseService.readChats2().subscribe((res)=>{
-      res.forEach((doc) => {
-        console.log(doc)
-        this.chats.push(doc)
+    this.firebaseService.readChatsStartedWithMe().subscribe((res)=>{
+      res.forEach((docs) => {
+        console.log(docs)
+        docs.forEach((doc) => {
+          console.log(doc)
+            this.chats.push(doc)
+        })
       })
     })
   }
 
-  fetchChats() {
-    this.firebaseService.readChats().subscribe((res)=>{
+  fetchChatsStartedByMe() {
+    this.firebaseService.readChatsStartedByMe().subscribe((res)=>{
       res.forEach((doc) => {
+        console.log(doc)
         this.chats.push(doc)
       })
     })

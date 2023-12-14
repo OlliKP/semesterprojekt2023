@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
 })
-export class ChatPage implements OnInit {
+export class ChatPage implements OnInit, OnDestroy {
   message = '';
   samtaleId = this.activatedRoute.snapshot.paramMap.get("id");
   messages = [];
@@ -15,40 +16,51 @@ export class ChatPage implements OnInit {
 
   constructor(
     private firebaseService: FirebaseService,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
 
-  ngOnInit() {this.fetchChatMessages()}
+  ) {}
+  private chatSubscription: Subscription
+
+  ngOnInit() {
+    this.fetchChatMessages();
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe from the chat subscription when the component is destroyed
+    if (this.chatSubscription) {
+      this.chatSubscription.unsubscribe();
+    }
+  }
 
   sendMessage() {
+    if(this.message === "") {
+      return;
+    }
     const record = {
       message: this.message,
       samtalerId: this.samtaleId,
       sender: localStorage.getItem("token"),
       time: new Date()
     };
+    this.message = ""
+
     this.firebaseService.createMessage(record).then((res) => {
-      this.messages.push(record);
-      this.message = "";
     });
   }
 
   fetchChatMessages() {
-    this.firebaseService.readChatMessages(this.samtaleId).subscribe((res) => {
-      res.forEach((doc) => {
-        let data = JSON.parse(JSON.stringify(doc.data()));
-        console.log(data)
-        let chatMessage = {
-          message: data.message,
-          time: data.time.seconds*1000,
-          sender: data.sender
-        }
-        this.messages.push(chatMessage);
-      })
-      this.messages.sort((a, b) => a.time - b.time)
-    })
-  }
+    if (this.chatSubscription) {
+      this.chatSubscription.unsubscribe();
+    }
 
+    this.chatSubscription = this.firebaseService.readChatMessagesRealtime(this.samtaleId).subscribe((res) => {
+      this.messages = res.map((doc) => ({
+        message: doc.message,
+        time: doc.time.seconds * 1000,
+        sender: doc.sender
+      }));
+    });
+  }
   getMessageOuterDisplay(message){
     if(message.sender !== this.userId){
       return 'yours messages'

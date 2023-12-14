@@ -152,7 +152,7 @@ export class FirebaseService {
     return this.firestore.collection('Samtaler').add(record);
   }
 
-  readChats() {
+  readChatsStartedByMe() {
     return this.firestore
       .collection('Samtaler', (ref) =>
         ref.where('Profil_ID', '==', localStorage.getItem('token'))
@@ -164,23 +164,29 @@ export class FirebaseService {
             const opslagId = JSON.parse(JSON.stringify(e.data())).Opslag_ID;
             // Return an observable for each inner Firestore call
 
-            return this.firestore
+            const opslag = this.firestore
               .collection('Opslag')
               .doc(opslagId)
               .get()
               .pipe(
                 map((innerData) => ({
+                  samtalerId: e.id,
                   eventId: opslagId,
-                  title:
-                    JSON.parse(JSON.stringify(innerData.data()))?.title || '',
-                  profilId:
-                    JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
-                    '',
-                  displayName:
-                    JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
-                    '',
+                  title: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.title || ''
+                    : '',
+                  profilId: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
+                      ''
+                    : '',
+                  displayName: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.displayName || ''
+                    : '',
                 }))
               );
+
+            return opslag;
           });
 
           // Use forkJoin to wait for all inner observables to complete
@@ -189,37 +195,95 @@ export class FirebaseService {
       );
   }
 
-  readChats2(){
-    return this.firestore
-      .collection('Samtaler', (ref) =>
-        ref.where('Profil_ID', '==', localStorage.getItem('token'))
-      )
-      .get()
-      .pipe(
-        switchMap((data) => {
-          const observables = data.docs.map((e) => {
-            const opslagId = JSON.parse(JSON.stringify(e.data())).Opslag_ID;
-            // Return an observable for each inner Firestore call
+  readChatsStartedWithMeRealtime(): Observable<any[]> {
+    const myId = localStorage.getItem('token');
 
+    // Step 1: Query Opslag collection for documents where profilId is equal to "myId"
+    return this.firestore
+      .collection('Opslag', (ref) => ref.where('profilId', '==', myId))
+      .snapshotChanges()
+      .pipe(
+        switchMap((opslagData) => {
+          const opslagIds = opslagData.map((doc) => doc.payload.doc.id);
+
+          // Step 2: Query Samtaler collection for documents where Opslag_ID is in the opslagIds array
+          const samlerObservables = opslagIds.map((opslagId) => {
             return this.firestore
-              .collection('Opslag', (ref) => ref.where('profilId', '==', localStorage.getItem('token')))
-            
-              .get()
-              .subscribe((res) => {
-                res.forEach((doc) => {
-                  let data = JSON.parse(JSON.stringify(doc.data()));
-                  console.log(data)
-                  return {
-                    message: data.message,
-                    time: data.time.seconds*1000,
-                    sender: data.sender
-                  }
+              .collection('Samtaler', (ref) =>
+                ref.where('Opslag_ID', '==', opslagId)
+              )
+              .snapshotChanges()
+              .pipe(
+                map((samlerData) => {
+                  return samlerData.map((samlerDoc) => {
+                    const samlerData = samlerDoc.payload.doc.data();
+                    const opsData = opslagData
+                      .find((opsDoc) => opsDoc.payload.doc.id === opslagId)
+                      .payload.doc.data();
+
+                    console.log(samlerDoc.payload.doc.id);
+                    const samtalerDataParsed = JSON.parse(
+                      JSON.stringify(samlerData)
+                    );
+                    console.log(samtalerDataParsed);
+                    const opsDataParsed = JSON.parse(JSON.stringify(opsData));
+                    return {
+                      samtalerId: samlerDoc.payload.doc.id,
+                      title: opsDataParsed.title, // Include the title from Opslag document
+                    };
+                  });
                 })
-              })
+              );
           });
 
           // Use forkJoin to wait for all inner observables to complete
-          return forkJoin(observables);
+          return forkJoin(samlerObservables);
+        })
+      );
+  }
+  readChatsStartedWithMe(): Observable<any[]> {
+    const myId = localStorage.getItem('token');
+    // Step 1: Query Opslag collection for documents where profilId is equal to "myId"
+    return this.firestore
+      .collection('Opslag', (ref) => ref.where('profilId', '==', myId))
+      .get()
+      .pipe(
+        switchMap((opslagData) => {
+          const opslagIds = opslagData.docs.map((doc) => doc.id);
+          console.log(opslagIds);
+
+          // Step 2: Query Samtaler collection for documents where Opslag_ID is in the opslagIds array
+          const samlerObservables = opslagIds.map((opslagId) => {
+            return this.firestore
+              .collection('Samtaler', (ref) =>
+                ref.where('Opslag_ID', '==', opslagId)
+              )
+              .get()
+              .pipe(
+                map((samlerData) => {
+                  return samlerData.docs.map((samlerDoc) => {
+                    const samlerData = samlerDoc.data();
+                    const opsData = opslagData.docs
+                      .find((opsDoc) => opsDoc.id === opslagId)
+                      .data();
+
+                    console.log(samlerDoc.id);
+                    const samtalerDataParsed = JSON.parse(
+                      JSON.stringify(samlerData)
+                    );
+                    console.log(samtalerDataParsed);
+                    const opsDataParsed = JSON.parse(JSON.stringify(opsData));
+                    return {
+                      samtalerId: samlerDoc.id,
+                      title: opsDataParsed.title, // Include the title from Opslag document
+                    };
+                  });
+                })
+              );
+          });
+
+          // Use forkJoin to wait for all inner observables to complete
+          return forkJoin(samlerObservables);
         })
       );
   }
@@ -234,5 +298,22 @@ export class FirebaseService {
         ref.where('samtalerId', '==', samtaleId)
       )
       .get();
+  }
+  readChatMessagesRealtime(samtaleId): Observable<any[]> {
+    return this.firestore
+      .collection('Samtale_info', (ref) =>
+        ref.where('samtalerId', '==', samtaleId).orderBy('time', 'asc')
+      )
+      .snapshotChanges()
+      .pipe(
+        map((snapshot) => {
+          return snapshot.map((doc) => {
+            const data = JSON.parse(JSON.stringify(doc.payload.doc.data()));
+            const id = doc.payload.doc.id;
+            const seconds = data.time.seconds;
+            return Object.assign({}, { id }, data);
+          });
+        })
+      );
   }
 }
