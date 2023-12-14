@@ -192,3 +192,7 @@ ion-button {
 .filter {
   opacity: 0;
 }
+
+ion-button::part(native){
+  color: white;
+}
