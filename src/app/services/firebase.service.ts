@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { Observable, forkJoin } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
-import { Auth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +14,6 @@ export class FirebaseService {
     private firestore: AngularFirestore,
     private fireauth: AngularFireAuth,
     private router: Router,
-    private auth: Auth
   ) {}
 
   createEvent(record) {
