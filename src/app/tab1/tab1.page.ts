@@ -12,6 +12,7 @@ export class Tab1Page {
   favoriteEvents: Array<any> = [];
   allEvents: Array<any>;
   showFavorites: boolean = false;
+  userId = localStorage.getItem("token");
 
   constructor(
     private firebaseService: FirebaseService,

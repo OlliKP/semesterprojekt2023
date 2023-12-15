@@ -62,8 +62,8 @@
             <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}</p>
           </div>
           <div class="acc-icons-container">
-            <ion-icon *ngIf="!event.favoritterId" class="acc-icon" color="warning" name="star-outline" (click)="makeFavorite(event)"></ion-icon>
-            <ion-icon *ngIf="event.favoritterId" class="acc-icon" color="warning" style="color: #FFD056" name="star" (click)="undoFavorite(event)"></ion-icon>
+            <ion-icon *ngIf="!event.favoritterId && event.profilId !== userId" class="acc-icon" color="warning" name="star-outline" (click)="makeFavorite(event)"></ion-icon>
+            <ion-icon *ngIf="event.favoritterId && event.profilId !== userId" class="acc-icon" color="warning" style="color: #FFD056" name="star" (click)="undoFavorite(event)"></ion-icon>
             <ion-button (click)="startChat(event.eventId)" size="small">Tilmeld
               <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
             </ion-button>          
