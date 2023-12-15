@@ -25,7 +25,7 @@ export class EditEventComponent  implements OnInit {
 
   calendar = {
     mode: 'month' as CalendarMode,
-    currentDate: new Date(),
+    currentDate: new Date().toISOString().split('T')[0],
     formatWeekTitle: `MMM 'uge' w`,
   };
 

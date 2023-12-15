@@ -29,6 +29,9 @@
           </ion-item>
 
           <ion-datetime
+            [min]="calendar.currentDate"
+            max="2026-05-31T23:59:59"
+            [firstDayOfWeek]="1"
             class="date-time"
             #start
             *ngIf="showCalender"
@@ -109,7 +112,6 @@
               <ion-button (click)="save()" [strong]="true">Gem</ion-button>
             </ion-buttons>
           </ion-toolbar>
-
         </ion-list>
       </ion-content>
     </ng-template>

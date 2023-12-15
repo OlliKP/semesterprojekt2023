@@ -17,7 +17,6 @@ export class Tab2Page implements OnInit {
 
     this.firebaseService.readChatsStartedWithMe().subscribe((res)=>{
       res.forEach((docs) => {
-        console.log(docs)
         docs.forEach((doc) => {
           console.log(doc)
             this.chats.push(doc)
@@ -29,7 +28,6 @@ export class Tab2Page implements OnInit {
   fetchChatsStartedByMe() {
     this.firebaseService.readChatsStartedByMe().subscribe((res)=>{
       res.forEach((doc) => {
-        console.log(doc)
         this.chats.push(doc)
       })
     })

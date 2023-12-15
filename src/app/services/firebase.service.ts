@@ -37,7 +37,6 @@ export class FirebaseService {
     return this.fireauth.signInWithPopup(new GoogleAuthProvider()).then(
       (res) => {
         this.router.navigate(['/introduction']);
-        console.log(res.user);
         localStorage.setItem('token', res.user?.uid);
         localStorage.setItem('displayName', res.user?.displayName);
         localStorage.setItem('email', res.user?.email);
@@ -244,11 +243,9 @@ export class FirebaseService {
                       .find((opsDoc) => opsDoc.payload.doc.id === opslagId)
                       .payload.doc.data();
 
-                    console.log(samlerDoc.payload.doc.id);
                     const samtalerDataParsed = JSON.parse(
                       JSON.stringify(samlerData)
                     );
-                    console.log(samtalerDataParsed);
                     const opsDataParsed = JSON.parse(JSON.stringify(opsData));
                     return {
                       samtalerId: samlerDoc.payload.doc.id,
@@ -273,7 +270,6 @@ export class FirebaseService {
       .pipe(
         switchMap((opslagData) => {
           const opslagIds = opslagData.docs.map((doc) => doc.id);
-          console.log(opslagIds);
 
           // Step 2: Query Samtaler collection for documents where Opslag_ID is in the opslagIds array
           const samlerObservables = opslagIds.map((opslagId) => {
@@ -290,11 +286,9 @@ export class FirebaseService {
                       .find((opsDoc) => opsDoc.id === opslagId)
                       .data();
 
-                    console.log(samlerDoc.id);
                     const samtalerDataParsed = JSON.parse(
                       JSON.stringify(samlerData)
                     );
-                    console.log(samtalerDataParsed);
                     const opsDataParsed = JSON.parse(JSON.stringify(opsData));
                     return {
                       samtalerId: samlerDoc.id,
