@@ -10,18 +10,30 @@
   <h1>Mine Beskeder</h1>
 </ion-toolbar>
 
-
 <ion-content color="secondary" [fullscreen]="false">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" class="white">
+    <ion-refresher-content
+      refreshingSpinner="crescent"
+    ></ion-refresher-content>
+  </ion-refresher>
   <div *ngFor="let chat of chats" class="acc-group">
     <div class="list-item" [routerLink]="['chat/' + chat.samtalerId]">
       <div class="list-item-content">
-        <img class="event-img" src="https://i.pravatar.cc/285" alt="Profilbillede" />
+        <img
+          class="event-img"
+          src="https://i.pravatar.cc/285"
+          alt="Profilbillede"
+        />
         <div class="text-item-div">
           <h2 class="titel-item">{{chat.title}}</h2>
           <h3 class="navn-item">{{chat.displayName}}</h3>
         </div>
       </div>
-      <ion-icon size="large" color="secondary" name="chevron-forward-outline"></ion-icon>
+      <ion-icon
+        size="large"
+        color="secondary"
+        name="chevron-forward-outline"
+      ></ion-icon>
     </div>
   </div>
 </ion-content>
