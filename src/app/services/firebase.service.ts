@@ -109,31 +109,56 @@ export class FirebaseService {
                 map((innerData) => ({
                   favoritterId,
                   eventId: opslagId,
-                  title:
-                    JSON.parse(JSON.stringify(innerData.data()))?.title || '',
-                  date:
-                    JSON.parse(JSON.stringify(innerData.data()))?.date || null,
-                  description:
-                    JSON.parse(JSON.stringify(innerData.data()))?.description ||
-                    '',
-                  location:
-                    JSON.parse(JSON.stringify(innerData.data()))?.location ||
-                    '',
-                  category:
-                    JSON.parse(JSON.stringify(innerData.data()))?.category ||
-                    '',
-                  minPersons:
-                    JSON.parse(JSON.stringify(innerData.data()))?.minPersons ||
-                    0,
-                  maxPersons:
-                    JSON.parse(JSON.stringify(innerData.data()))?.maxPersons ||
-                    0,
-                  profilId:
-                    JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
-                    '',
-                  displayName:
-                    JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
-                    '',
+                  title: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.title || ''
+                    : '',
+                    date: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.date || ''
+                    : '',
+                  // date:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.date || null,
+                  description: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.description || ''
+                    : '',
+                  // description:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.description ||
+                  //   '',
+                  location: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.location || ''
+                    : '',
+                  // location:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.location ||
+                  //   '',
+                  category: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.category || ''
+                    : '',
+                  // category:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.category ||
+                  //   '',
+                  minPersons: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.minPersons || ''
+                    : '',
+                  // minPersons:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.minPersons ||
+                  //   0,
+                  maxPersons: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.maxPersons || ''
+                    : '',
+                  // maxPersons:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.maxPersons ||
+                  //   0,
+                  profilId: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.profilId || ''
+                    : '',
+                  // profilId:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
+                  //   '',
+                  displayName: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.displayName || ''
+                    : '',
+                  // displayName:
+                  //   JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
+                  //   '',
                 }))
               );
           });

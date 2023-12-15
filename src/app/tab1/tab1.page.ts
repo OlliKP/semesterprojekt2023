@@ -104,8 +104,10 @@ export class Tab1Page {
           return event.eventId === favoriteEvent.eventId;
         });
 
-        favoriteEventInEvents.favoritterId = favoriteEvent.favoritterId;
-        this.events[favoriteEventInEventsIndex] = favoriteEventInEvents;
+        if(favoriteEventInEvents !== undefined) {
+          favoriteEventInEvents.favoritterId = favoriteEvent.favoritterId;
+          this.events[favoriteEventInEventsIndex] = favoriteEventInEvents;
+        }
       });
     });
   }
