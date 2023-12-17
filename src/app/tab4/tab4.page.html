@@ -8,7 +8,7 @@
 
 <ion-toolbar>
   <ion-buttons color="secondary" slot="secondary">
-    <ion-button routerLink="/">
+    <ion-button routerLink="/tabs/tab1">
       <ion-icon name="arrow-undo" color="primary"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -30,7 +30,7 @@
           <img
             class="picture"
             alt="Silhouette of mountains"
-            src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+            src="{{user.photoURL ? user.photoURL : 'https://ionicframework.com/docs/img/demos/thumbnail.svg'}}"
           />
         </ion-item>
 

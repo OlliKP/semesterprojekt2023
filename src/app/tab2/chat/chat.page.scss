@@ -52,15 +52,23 @@ h1 {
   color: white;
 }
 
-.message-area {
+.message-content {
+  --keyboard-offset: 300px;
+
   padding-top: 1rem;
-  width: 85vw;
   background-color: var(--ion-color-secondary);
+}
+
+.message-area {
+  margin-bottom: 5rem;
+  width: 85vw;
   margin-left: auto;
   margin-right: auto;
 }
 
 .message {
+  // margin-left: 1.8rem;
+  // margin-right: 1.8rem;
   margin-bottom: 1rem;
   border-radius: 25px;
   padding: 0.5rem 1rem;
@@ -131,11 +139,6 @@ p {
     border-bottom-right-radius: 25px;
   }
 }
-
-
-
-
-
 
 .messages {
   margin-top: 30px;

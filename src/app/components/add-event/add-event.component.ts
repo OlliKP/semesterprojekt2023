@@ -15,19 +15,27 @@ export class AddEventComponent implements OnInit {
   
   constructor(private firebaseService: FirebaseService, private auth: Auth) {}
   
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(new Date().toISOString)
+  }
   
+  calendar = {
+    mode: 'month' as CalendarMode,
+    currentDate: new Date().toISOString().split('T')[0],
+    formatWeekTitle: `MMM 'uge' w`,
+  };
+
   event = {
     eventId: '',
     title: '',
     profilId: localStorage.getItem('token'),
-    date: '',
+    date: this.calendar.currentDate,
     description: '',
     location: '',
     category: '',
     minPersons: null,
     maxPersons: null,
-    displayName: this.auth.currentUser.displayName,
+    displayName: this.auth.currentUser?.displayName,
   };
 
   @ViewChild(IonModal) modal: IonModal;
@@ -35,11 +43,7 @@ export class AddEventComponent implements OnInit {
   showCalender = false;
   formattedDate: string;
 
-  calendar = {
-    mode: 'month' as CalendarMode,
-    currentDate: new Date(),
-    formatWeekTitle: `MMM 'uge' w`,
-  };
+
 
   cancel() {
     this.modal.dismiss(null, 'cancel');
@@ -55,7 +59,7 @@ export class AddEventComponent implements OnInit {
 
   datePicked(value: any) {
     this.event.date = value.split('T')[0];
-    console.log(this.event.date)
+    console.log(value);
     this.formattedDate = format(parseISO(value), 'MMM d, yyyy');
     this.showCalender = false;
   }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -11,8 +12,12 @@ export class Tab1Page {
   favoriteEvents: Array<any> = [];
   allEvents: Array<any>;
   showFavorites: boolean = false;
+  userId = localStorage.getItem('token');
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(
+    private firebaseService: FirebaseService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.fetchEvents();
@@ -28,12 +33,14 @@ export class Tab1Page {
       return;
     }
 
-    this.firebaseService.createFavorite({
-      Opslag_ID: event.eventId,
-      Profil_ID: localStorage.getItem('token'),
-    }).then((result) => {
-      event.favoritterId = result.id;
-    });
+    this.firebaseService
+      .createFavorite({
+        Opslag_ID: event.eventId,
+        Profil_ID: localStorage.getItem('token'),
+      })
+      .then((result) => {
+        event.favoritterId = result.id;
+      });
     this.favoriteEvents.push(event);
 
     const eventIndex = this.events.findIndex((e) => {
@@ -98,8 +105,10 @@ export class Tab1Page {
           return event.eventId === favoriteEvent.eventId;
         });
 
-        favoriteEventInEvents.favoritterId = favoriteEvent.favoritterId;
-        this.events[favoriteEventInEventsIndex] = favoriteEventInEvents;
+        if (favoriteEventInEvents !== undefined) {
+          favoriteEventInEvents.favoritterId = favoriteEvent.favoritterId;
+          this.events[favoriteEventInEventsIndex] = favoriteEventInEvents;
+        }
       });
     });
   }
@@ -132,5 +141,25 @@ export class Tab1Page {
     return event.minPersons + ' - ' + event.maxPersons;
   }
 
+  startChat(opslagId) {
+    const record = {
+      Opslag_ID: opslagId,
+      Profil_ID: localStorage.getItem('token'),
+    };
+    this.firebaseService.createChat(record).then((res) => {
+      this.router.navigate(['tabs/tab2/chat/' + res.id]);
+    });
+  }
 
+  handleRefresh(event) {
+    setTimeout(() => {
+      this.events = [];
+      this.favoriteEvents = [];
+      this.allEvents = [];
+      this.showFavorites = false;
+      this.fetchEvents();
+      this.fetchFavoriteEvents();
+      event.target.complete();
+    }, 1000);
+  }
 }

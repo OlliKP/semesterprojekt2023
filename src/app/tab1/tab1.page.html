@@ -9,7 +9,12 @@
 <ion-toolbar color="secondary">
   <ion-buttons slot="secondary" (click)="toggleFavorites()">
     <ion-button>
-      <ion-icon *ngIf="showFavorites" slot="icon-only" name="star" style="color: #FFD056"></ion-icon>
+      <ion-icon
+        *ngIf="showFavorites"
+        slot="icon-only"
+        name="star"
+        style="color: #ffd056"
+      ></ion-icon>
       <ion-icon *ngIf="!showFavorites" slot="icon-only" name="star"></ion-icon>
     </ion-button>
   </ion-buttons>
@@ -20,12 +25,19 @@
   </ion-buttons>
 
   <h1>Alle Begivenheder</h1>
-  
 </ion-toolbar>
 
-
 <ion-content color="secondary" [fullscreen]="false">
-  <ion-accordion-group class="acc-group" expand="inset" *ngFor="let event of events">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" class="white">
+    <ion-refresher-content
+      refreshingSpinner="crescent"
+    ></ion-refresher-content>
+  </ion-refresher>
+  <ion-accordion-group
+    class="acc-group"
+    expand="inset"
+    *ngFor="let event of events"
+  >
     <ion-accordion value="Titel" class="acc">
       <ion-item class="acc-item" slot="header" color="light">
         <img
@@ -48,9 +60,7 @@
       </ion-item>
       <div class="div-content" slot="content">
         <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
-        <p class="beskrivelse-text">
-          {{event.description}}
-        </p>
+        <p class="beskrivelse-text">{{event.description}}</p>
         <div class="text-and-icon-container">
           <div>
             <p class="p-margin-bottom p-margin-top">
@@ -59,14 +69,30 @@
             <p class="p-margin-bottom p-margin-top">
               <b>Kategori:</b> {{event.category}}
             </p>
-            <p class="p-margin-bottom p-margin-top"><b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}</p>
+            <p class="p-margin-bottom p-margin-top">
+              <b>Antal buddys:</b> {{ displayNumberOfPerson(event) }}
+            </p>
           </div>
           <div class="acc-icons-container">
-            <ion-icon *ngIf="!event.favoritterId" class="acc-icon" color="warning" name="star-outline" (click)="makeFavorite(event)"></ion-icon>
-            <ion-icon *ngIf="event.favoritterId" class="acc-icon" color="warning" style="color: #FFD056" name="star" (click)="undoFavorite(event)"></ion-icon>
-            <ion-button size="small">Tilmeld
+            <ion-icon
+              *ngIf="!event.favoritterId && event.profilId !== userId"
+              class="acc-icon"
+              color="warning"
+              name="star-outline"
+              (click)="makeFavorite(event)"
+            ></ion-icon>
+            <ion-icon
+              *ngIf="event.favoritterId && event.profilId !== userId"
+              class="acc-icon"
+              color="warning"
+              style="color: #ffd056"
+              name="star"
+              (click)="undoFavorite(event)"
+            ></ion-icon>
+            <ion-button (click)="startChat(event.eventId)" size="small"
+              >Tilmeld
               <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
-            </ion-button>          
+            </ion-button>
           </div>
         </div>
       </div>

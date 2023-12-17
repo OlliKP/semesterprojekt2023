@@ -8,14 +8,14 @@ const routes: Routes = [
     component: Tab2Page,
   },
   {
-    path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  }
-
+    path: 'chat/:id',
+    loadChildren: () =>
+      import('./chat/chat.module').then((m) => m.ChatPageModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class Tab2PageRoutingModule {}
