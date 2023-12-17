@@ -12,7 +12,7 @@ export class Tab1Page {
   favoriteEvents: Array<any> = [];
   allEvents: Array<any>;
   showFavorites: boolean = false;
-  userId = localStorage.getItem("token");
+  userId = localStorage.getItem('token');
 
   constructor(
     private firebaseService: FirebaseService,
@@ -105,7 +105,7 @@ export class Tab1Page {
           return event.eventId === favoriteEvent.eventId;
         });
 
-        if(favoriteEventInEvents !== undefined) {
+        if (favoriteEventInEvents !== undefined) {
           favoriteEventInEvents.favoritterId = favoriteEvent.favoritterId;
           this.events[favoriteEventInEventsIndex] = favoriteEventInEvents;
         }
@@ -153,11 +153,13 @@ export class Tab1Page {
 
   handleRefresh(event) {
     setTimeout(() => {
-      // Any calls to load data go here
+      this.events = [];
+      this.favoriteEvents = [];
+      this.allEvents = [];
+      this.showFavorites = false;
+      this.fetchEvents();
+      this.fetchFavoriteEvents();
       event.target.complete();
     }, 1000);
   }
-
-
-  
 }

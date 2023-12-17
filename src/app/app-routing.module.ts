@@ -3,48 +3,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () =>
-      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-  },
-  {
     path: 'tabs',
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
-  },
-  {
-    path: 'add-event',
-    loadChildren: () =>
-      import('./components/add-event/add-event.component').then(
-        (m) => m.AddEventComponent
-      ),
-  },
-  {
-    path: 'edit-event',
-    loadChildren: () =>
-      import('./components/edit-event/edit-event.component').then(
-        (m) => m.EditEventComponent
-      ),
   },
   {
     path: 'introduction',
     loadChildren: () =>
       import('./pages/introduction/introduction.module').then(
         (m) => m.IntroductionPageModule
-      ),
-  },
-  {
-    path: 'add-event',
-    loadChildren: () =>
-      import('./components/add-event/add-event.component').then(
-        (m) => m.AddEventComponent
-      ),
-  },
-  {
-    path: 'edit-event',
-    loadChildren: () =>
-      import('./components/edit-event/edit-event.component').then(
-        (m) => m.EditEventComponent
       ),
   },
   {
@@ -56,6 +23,11 @@ const routes: Routes = [
     path: 'opret',
     loadChildren: () =>
       import('./pages/opret/opret.module').then((m) => m.OpretPageModule),
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
 ];
 @NgModule({

@@ -9,13 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'chat/:id',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
-  }
-
+    loadChildren: () =>
+      import('./chat/chat.module').then((m) => m.ChatPageModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class Tab2PageRoutingModule {}

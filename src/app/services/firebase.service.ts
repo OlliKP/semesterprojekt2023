@@ -13,7 +13,7 @@ export class FirebaseService {
   constructor(
     private firestore: AngularFirestore,
     private fireauth: AngularFireAuth,
-    private router: Router,
+    private router: Router
   ) {}
 
   createEvent(record) {
@@ -48,7 +48,7 @@ export class FirebaseService {
     );
   }
 
-  readEventsByUserId() {
+  readEventsByUserId(userId) {
     return this.firestore
       .collection('Opslag')
       .snapshotChanges()
@@ -57,7 +57,7 @@ export class FirebaseService {
           events
             .map((e) => {
               const profilId = e.payload.doc.get('profilId');
-              if (profilId === localStorage.getItem('token')) {
+              if (profilId === userId) {
                 return {
                   eventId: e.payload.doc.id,
                   title: e.payload.doc.data()['title'],
@@ -111,53 +111,43 @@ export class FirebaseService {
                   title: innerData.data()
                     ? JSON.parse(JSON.stringify(innerData.data()))?.title || ''
                     : '',
-                    date: innerData.data()
+                  date: innerData.data()
                     ? JSON.parse(JSON.stringify(innerData.data()))?.date || ''
                     : '',
-                  // date:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.date || null,
                   description: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.description || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.description || ''
                     : '',
-                  // description:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.description ||
-                  //   '',
+
                   location: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.location || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.location ||
+                      ''
                     : '',
-                  // location:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.location ||
-                  //   '',
+
                   category: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.category || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.category ||
+                      ''
                     : '',
-                  // category:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.category ||
-                  //   '',
+
                   minPersons: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.minPersons || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.minPersons || ''
                     : '',
-                  // minPersons:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.minPersons ||
-                  //   0,
+
                   maxPersons: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.maxPersons || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.maxPersons || ''
                     : '',
-                  // maxPersons:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.maxPersons ||
-                  //   0,
+
                   profilId: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.profilId || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
+                      ''
                     : '',
-                  // profilId:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.profilId ||
-                  //   '',
+
                   displayName: innerData.data()
-                    ? JSON.parse(JSON.stringify(innerData.data()))?.displayName || ''
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.displayName || ''
                     : '',
-                  // displayName:
-                  //   JSON.parse(JSON.stringify(innerData.data()))?.displayName ||
-                  //   '',
                 }))
               );
           });
@@ -309,14 +299,7 @@ export class FirebaseService {
     return this.firestore.collection('Samtale_info').add(record);
   }
 
-  readChatMessages(samtaleId) {
-    return this.firestore
-      .collection('Samtale_info', (ref) =>
-        ref.where('samtalerId', '==', samtaleId)
-      )
-      .get();
-  }
-  readChatMessagesRealtime(samtaleId): Observable<any[]> {
+  readChatMessages(samtaleId): Observable<any[]> {
     return this.firestore
       .collection('Samtale_info', (ref) =>
         ref.where('samtalerId', '==', samtaleId).orderBy('time', 'asc')
@@ -325,10 +308,7 @@ export class FirebaseService {
       .pipe(
         map((snapshot) => {
           return snapshot.map((doc) => {
-            const data = JSON.parse(JSON.stringify(doc.payload.doc.data()));
-            const id = doc.payload.doc.id;
-            const seconds = data.time.seconds;
-            return Object.assign({}, { id }, data);
+            return doc.payload.doc.data();
           });
         })
       );

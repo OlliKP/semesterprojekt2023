@@ -8,24 +8,9 @@ import { Auth } from '@angular/fire/auth';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss'],
 })
-export class Tab3Page implements OnInit, OnChanges {
+export class Tab3Page implements OnInit {
   events: any;
   user: any;
-
-  alertButtons = [
-    {
-      text: 'Nej',
-      handler: () => {
-        console.log('nej');
-      },
-    },
-    {
-      text: 'Ja',
-      handler: (id) => {
-        this.deleteEvent(id);
-      },
-    },
-  ];
 
   constructor(
     private alertController: AlertController,
@@ -35,19 +20,14 @@ export class Tab3Page implements OnInit, OnChanges {
 
   ngOnInit() {
     this.fetchOwnEvents();
-
-  }
-
-  ngOnChanges() {
-    this.user = this.auth.currentUser;
-    console.log(this.auth.currentUser);
   }
 
   fetchOwnEvents() {
-    this.firebaseService.readEventsByUserId().subscribe((data) => {
+    const userId = localStorage.getItem('token');
+    this.firebaseService.readEventsByUserId(userId).subscribe((data) => {
       this.events = data.map((e) => {
         return e;
-      })
+      });
     });
   }
 

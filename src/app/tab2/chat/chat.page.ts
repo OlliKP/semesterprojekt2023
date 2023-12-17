@@ -8,43 +8,42 @@ import { Subscription } from 'rxjs';
   templateUrl: './chat.page.html',
   styleUrls: ['./chat.page.scss'],
 })
-export class ChatPage implements OnInit, OnDestroy {
+export class ChatPage implements OnInit {
   message = '';
-  samtaleId = this.activatedRoute.snapshot.paramMap.get("id");
+  samtaleId = this.activatedRoute.snapshot.paramMap.get('id');
   messages = [];
-  userId = localStorage.getItem("token")
+  userId = localStorage.getItem('token');
 
   constructor(
     private firebaseService: FirebaseService,
-    private activatedRoute: ActivatedRoute,
-
+    private activatedRoute: ActivatedRoute
   ) {}
-  private chatSubscription: Subscription
+  private chatSubscription: Subscription;
 
   ngOnInit() {
     this.fetchChatMessages();
   }
 
-  ngOnDestroy() {
-    // Unsubscribe from the chat subscription when the component is destroyed
-    if (this.chatSubscription) {
-      this.chatSubscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   // Unsubscribe from the chat subscription when the component is destroyed
+  //   if (this.chatSubscription) {
+  //     this.chatSubscription.unsubscribe();
+  //   }
+  // }
 
   sendMessage() {
-    if(this.message === "") {
+    if (this.message === '') {
       return;
     }
     const record = {
       message: this.message,
       samtalerId: this.samtaleId,
-      sender: localStorage.getItem("token"),
-      time: new Date()
+      sender: localStorage.getItem('token'),
+      time: new Date(),
     };
-    this.message = ""
 
     this.firebaseService.createMessage(record).then((res) => {
+      this.message = '';
     });
   }
 
@@ -52,28 +51,30 @@ export class ChatPage implements OnInit, OnDestroy {
     if (this.chatSubscription) {
       this.chatSubscription.unsubscribe();
     }
-
-    this.chatSubscription = this.firebaseService.readChatMessagesRealtime(this.samtaleId).subscribe((res) => {
-      this.messages = res.map((doc) => ({
-        message: doc.message,
-        time: doc.time.seconds * 1000,
-        sender: doc.sender
-      }));
-    });
+    this.chatSubscription = this.firebaseService
+      .readChatMessages(this.samtaleId)
+      .subscribe((res) => {
+        console.log(res);
+        this.messages = res.map((doc) => ({
+          message: doc.message,
+          time: doc.time.seconds * 1000,
+          sender: doc.sender,
+        }));
+      });
   }
-  getMessageOuterDisplay(message){
-    if(message.sender !== this.userId){
-      return 'yours messages'
+  getMessageOuterDisplay(message) {
+    if (message.sender !== this.userId) {
+      return 'yours messages';
     } else {
       return 'mine messages';
     }
   }
 
   getMessageInnerDisplay(message) {
-    if(message.sender !== this.userId){
-      return "message last message sender"
+    if (message.sender !== this.userId) {
+      return 'message last message sender';
     } else {
-      return "message last message reciever"
+      return 'message last message reciever';
     }
   }
 }

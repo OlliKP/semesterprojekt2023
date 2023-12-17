@@ -11,10 +11,12 @@
 </ion-toolbar>
 
 <ion-content color="secondary" [fullscreen]="false">
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" class="white">
-    <ion-refresher-content
-      refreshingSpinner="crescent"
-    ></ion-refresher-content>
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="handleRefresh($event)"
+    class="white"
+  >
+    <ion-refresher-content refreshingSpinner="crescent"></ion-refresher-content>
   </ion-refresher>
   <div *ngFor="let chat of chats" class="acc-group">
     <div class="list-item" [routerLink]="['chat/' + chat.samtalerId]">
