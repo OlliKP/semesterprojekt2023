@@ -32,3 +32,9 @@ ion-item, ion-textarea, ion-select, ion-label, ion-datetime {
 .item .sc-ion-label-ios-h {
   font-family: InterRegular;
 }
+
+ion-button::part(native) {
+  border-radius: 50px;
+  font-family: InterMedium;
+}
+
