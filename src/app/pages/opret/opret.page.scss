@@ -29,11 +29,16 @@ h1 {
   margin-bottom: -1rem;
 }
 
-ion-input,
+ion-input {
+  color: #fff;
+  font-family: InterRegular;
+}
+
 .btn,
 .eller,
 .signUp {
   color: #fff;
+  font-family: InterSemiBold;
 }
 
 .kodeInput,
@@ -84,7 +89,7 @@ ion-button.signUp {
   font-size: 0.75rem;
   --background: none;
   --background-activated: none;
-  margin-top: -0.5rem;
+  margin-top: 1rem;
 }
 
 .btn::part(native) {

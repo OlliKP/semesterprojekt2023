@@ -77,15 +77,18 @@ img {
 
 .navnTekst {
   margin-top: 2em;
+  font-family: InterMedium;
 }
 
 .mailTekst {
   margin-top: 0.5em;
+  font-family: InterMedium;
+
 }
 
 .navnInput, .mailInput {
   border-radius: 5px;
-
+  font-family: InterReg;
 }
 
 ion-input {
@@ -111,7 +114,7 @@ ion-button::part(native) {
 
 .mailTekst {
   margin-top: 1rem;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.0rem;
   font-family: InterSemiBold;
 }
 

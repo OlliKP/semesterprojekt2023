@@ -1,45 +1,53 @@
-ion-modal{
-    margin-top: 10rem;
+ion-modal {
+  margin-top: 10rem;
 }
 
-  .skiftSlet::part(native) {
-    background-color: var(--ion-color-primary);
-    color: #fff;
-  }
+.skiftSlet::part(native) {
+  background-color: var(--ion-color-primary);
+  color: #fff;
+}
 
-  .slet::part(native) {
-    background-color: var(--ion-color-danger);
-    color: #fff;
-  }
+.slet::part(native) {
+  background-color: var(--ion-color-danger);
+  color: #fff;
+}
 
-  .skiftSlet {
-    height: 5vh;
-    width: 35vw;
-    margin: 10em auto 100em auto;
-    display: block;
-    --padding-start: 2.5rem;
-    --padding-end: 2.5rem;
-  }
+.skiftSlet {
+  height: 5vh;
+  width: 35vw;
+  margin: 10em auto 100em auto;
+  display: block;
+  --padding-start: 2.5rem;
+  --padding-end: 2.5rem;
+}
 
-  .pswDel {
-    color: var(--ion-color-secondary);
-  }
+.pswDel {
+  color: var(--ion-color-secondary);
+}
 
-  .redigerFelter {
-    margin-top: 10em;
-    width: 85vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.redigerFelter {
+  margin-top: 10em;
+  width: 85vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .mail {
-    text-align: end;
-  }
+.mail {
+  text-align: end;
+}
 
-  ion-toolbar.tool {
-    --background: var(--ion-color-primary) !important;
-  }
+ion-toolbar.tool {
+  --background: var(--ion-color-primary) !important;
+}
 
-  ion-button::part(native) {
-    border-radius: 50px;
-  }
+
+
+ion-button::part(native) {
+  border-radius: 50px;
+  font-family: InterMedium;
+}
+
+ion-item,
+ion-input {
+  font-family: InterRegular;
+}

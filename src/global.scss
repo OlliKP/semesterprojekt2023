@@ -49,6 +49,7 @@ ion-modal {
 ion-modal ion-toolbar {
   --background: var(--ion-color-tertiary);
   --color: white;
+  font-family: RalewaySemibold;
 }
 
 ion-modal ion-toolbar ion-button {
@@ -71,8 +72,17 @@ ion-button::part(native) {
   border-radius: 50px;
 }
 
-.white.refresher-active{
-  ion-spinner{
+.white.refresher-active {
+  ion-spinner {
     color: var(--ion-color-light) !important;
   }
 }
+
+.alert-title{
+  font-family: InterRegular;
+}
+
+.alert-wrapper.sc-ion-alert-ios {
+  font-family: InterMedium;
+}
+
