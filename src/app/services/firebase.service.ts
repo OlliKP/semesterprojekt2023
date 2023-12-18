@@ -68,6 +68,7 @@ export class FirebaseService {
                   minPersons: e.payload.doc.data()['minPersons'],
                   maxPersons: e.payload.doc.data()['maxPersons'],
                   profilId: profilId,
+                  photoURL: e.payload.doc.data()['photoURL'],
                 };
               }
               return {};
@@ -148,6 +149,11 @@ export class FirebaseService {
                     ? JSON.parse(JSON.stringify(innerData.data()))
                         ?.displayName || ''
                     : '',
+
+                  photoURL: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))?.photoURL ||
+                      ''
+                    : '',
                 }))
               );
           });
@@ -162,6 +168,17 @@ export class FirebaseService {
 
   createChat(record) {
     return this.firestore.collection('Samtaler').add(record);
+  }
+
+  readChat(samtalerId) {
+    return this.firestore
+      .collection('Samtaler')
+      .doc(samtalerId)
+      .snapshotChanges();
+  }
+
+  readEvent(eventId) {
+    return this.firestore.collection('Opslag').doc(eventId).snapshotChanges();
   }
 
   readChatsStartedByMe() {
@@ -195,6 +212,10 @@ export class FirebaseService {
                     ? JSON.parse(JSON.stringify(innerData.data()))
                         ?.displayName || ''
                     : '',
+                    photoURL: innerData.data()
+                    ? JSON.parse(JSON.stringify(innerData.data()))
+                        ?.photoURL || ''
+                    : ''
                 }))
               );
 
@@ -207,50 +228,52 @@ export class FirebaseService {
       );
   }
 
-  readChatsStartedWithMeRealtime(): Observable<any[]> {
-    const myId = localStorage.getItem('token');
+  // readChatsStartedWithMeRealtime(): Observable<any[]> {
+  //   const myId = localStorage.getItem('token');
 
-    // Step 1: Query Opslag collection for documents where profilId is equal to "myId"
-    return this.firestore
-      .collection('Opslag', (ref) => ref.where('profilId', '==', myId))
-      .snapshotChanges()
-      .pipe(
-        switchMap((opslagData) => {
-          const opslagIds = opslagData.map((doc) => doc.payload.doc.id);
+  //   // Step 1: Query Opslag collection for documents where profilId is equal to "myId"
+  //   return this.firestore
+  //     .collection('Opslag', (ref) => ref.where('profilId', '==', myId))
+  //     .snapshotChanges()
+  //     .pipe(
+  //       switchMap((opslagData) => {
+  //         const opslagIds = opslagData.map((doc) => doc.payload.doc.id);
 
-          // Step 2: Query Samtaler collection for documents where Opslag_ID is in the opslagIds array
-          const samlerObservables = opslagIds.map((opslagId) => {
-            return this.firestore
-              .collection('Samtaler', (ref) =>
-                ref.where('Opslag_ID', '==', opslagId)
-              )
-              .snapshotChanges()
-              .pipe(
-                map((samlerData) => {
-                  return samlerData.map((samlerDoc) => {
-                    const samlerData = samlerDoc.payload.doc.data();
-                    const opsData = opslagData
-                      .find((opsDoc) => opsDoc.payload.doc.id === opslagId)
-                      .payload.doc.data();
+  //         // Step 2: Query Samtaler collection for documents where Opslag_ID is in the opslagIds array
+  //         const samlerObservables = opslagIds.map((opslagId) => {
+  //           return this.firestore
+  //             .collection('Samtaler', (ref) =>
+  //               ref.where('Opslag_ID', '==', opslagId)
+  //             )
+  //             .snapshotChanges()
+  //             .pipe(
+  //               map((samlerData) => {
+  //                 return samlerData.map((samlerDoc) => {
+  //                   const samlerData = samlerDoc.payload.doc.data();
+  //                   const opsData = opslagData
+  //                     .find((opsDoc) => opsDoc.payload.doc.id === opslagId)
+  //                     .payload.doc.data();
 
-                    const samtalerDataParsed = JSON.parse(
-                      JSON.stringify(samlerData)
-                    );
-                    const opsDataParsed = JSON.parse(JSON.stringify(opsData));
-                    return {
-                      samtalerId: samlerDoc.payload.doc.id,
-                      title: opsDataParsed.title, // Include the title from Opslag document
-                    };
-                  });
-                })
-              );
-          });
+  //                   const samtalerDataParsed = JSON.parse(
+  //                     JSON.stringify(samlerData)
+  //                   );
+  //                   const opsDataParsed = JSON.parse(JSON.stringify(opsData));
+  //                   return {
+  //                     samtalerId: samlerDoc.payload.doc.id,
+  //                     title: opsDataParsed.title,
+  //                     photoURL: opsDataParsed.photoURL,
+  //                   };
+  //                 });
+  //               })
+  //             );
+  //         });
 
-          // Use forkJoin to wait for all inner observables to complete
-          return forkJoin(samlerObservables);
-        })
-      );
-  }
+  //         // Use forkJoin to wait for all inner observables to complete
+  //         return forkJoin(samlerObservables);
+  //       })
+  //     );
+  // }
+
   readChatsStartedWithMe(): Observable<any[]> {
     const myId = localStorage.getItem('token');
     // Step 1: Query Opslag collection for documents where profilId is equal to "myId"
@@ -282,7 +305,9 @@ export class FirebaseService {
                     const opsDataParsed = JSON.parse(JSON.stringify(opsData));
                     return {
                       samtalerId: samlerDoc.id,
-                      title: opsDataParsed.title, // Include the title from Opslag document
+                      title: opsDataParsed.title,
+                      photoURL: opsDataParsed.photoURL,
+                      displayName: opsDataParsed.displayName
                     };
                   });
                 })

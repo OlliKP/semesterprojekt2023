@@ -17,14 +17,14 @@
     <ion-button>
       <img
         class="profil-img"
-        src="https://i.pravatar.cc/285"
+        src="{{getOtherChatPersonPhotoURL()}}"
         alt="Profilbillede"
       />
     </ion-button>
   </ion-buttons>
-  <h1>Samtale med x</h1>
+  <h1>Samtale med {{getOtherChatPersonName()}}</h1>
 </ion-toolbar>
-<h2 class="event-h2">Brætspil & Rødvin</h2>
+<h2 class="event-h2">{{event.title}}</h2>
 
 <ion-content color="secondary" id="message-content" class="message-content">
   <div class="message-area">

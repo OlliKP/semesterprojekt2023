@@ -128,6 +128,7 @@ export class Tab1Page {
           profilId: e.payload.doc.data()['profilId'],
           favoritterId: false,
           displayName: e.payload.doc.data()['displayName'],
+          photoURL: e.payload.doc.data()['photoURL'],
         };
       });
       this.allEvents = this.events;
@@ -145,6 +146,8 @@ export class Tab1Page {
     const record = {
       Opslag_ID: opslagId,
       Profil_ID: localStorage.getItem('token'),
+      displayName: localStorage.getItem('displayName'),
+      photoURL: localStorage.getItem('photoURL')
     };
     this.firebaseService.createChat(record).then((res) => {
       this.router.navigate(['tabs/tab2/chat/' + res.id]);

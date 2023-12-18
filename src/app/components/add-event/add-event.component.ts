@@ -36,6 +36,7 @@ export class AddEventComponent implements OnInit {
     minPersons: null,
     maxPersons: null,
     displayName: this.auth.currentUser?.displayName,
+    photoURL: this.auth.currentUser?.photoURL
   };
 
   @ViewChild(IonModal) modal: IonModal;

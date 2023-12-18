@@ -13,6 +13,8 @@ export class ChatPage implements OnInit {
   samtaleId = this.activatedRoute.snapshot.paramMap.get('id');
   messages = [];
   userId = localStorage.getItem('token');
+  event: any = '';
+  chat: any = '';
 
   constructor(
     private firebaseService: FirebaseService,
@@ -22,6 +24,7 @@ export class ChatPage implements OnInit {
 
   ngOnInit() {
     this.fetchChatMessages();
+    this.fetchChat();
   }
 
   // ngOnDestroy() {
@@ -77,4 +80,35 @@ export class ChatPage implements OnInit {
       return 'message last message reciever';
     }
   }
+
+  fetchChat(){
+    this.firebaseService.readChat(this.samtaleId).subscribe((res) => {
+      console.log(res.payload.data())
+      const data = JSON.parse(JSON.stringify(res.payload.data()));
+      this.chat = data
+      const eventId = data.Opslag_ID
+      console.log(eventId)
+      this.firebaseService.readEvent(eventId).subscribe((eventRes) => {
+        console.log(eventRes.payload.data())
+        this.event = JSON.parse(JSON.stringify(eventRes.payload.data()))
+      })
+    })
+  }
+
+  getOtherChatPersonName() {
+    if ( this.event.profilId !== localStorage.getItem('token')){
+      return this.event.displayName
+    } else {
+      return this.chat.displayName
+    }
+  }
+
+  getOtherChatPersonPhotoURL() {
+    if ( this.event.profilId !== localStorage.getItem('token')){
+      return this.event.photoURL
+    } else {
+      return this.chat.photoURL
+    }
+  }
+
 }
