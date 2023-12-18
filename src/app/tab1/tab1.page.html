@@ -89,7 +89,7 @@
               name="star"
               (click)="undoFavorite(event)"
             ></ion-icon>
-            <ion-button (click)="startChat(event.eventId)" size="small"
+            <ion-button *ngIf="event.profilId !== userId" (click)="startChat(event.eventId)" size="small"
               >Tilmeld
               <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
             </ion-button>
