@@ -25,6 +25,12 @@ ion-toolbar.tool {
 }
 
 ion-input,
-ion-item {
+ion-item, ion-textarea, ion-select, ion-label, ion-datetime {
   font-family: InterRegular;
 }
+
+.item .sc-ion-label-ios-h {
+  font-family: InterRegular;
+}
+
+
