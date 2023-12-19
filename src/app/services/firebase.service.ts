@@ -301,13 +301,13 @@ export class FirebaseService {
 
                     const samtalerDataParsed = JSON.parse(
                       JSON.stringify(samlerData)
-                    );
+                    ); 
                     const opsDataParsed = JSON.parse(JSON.stringify(opsData));
                     return {
                       samtalerId: samlerDoc.id,
                       title: opsDataParsed.title,
-                      photoURL: opsDataParsed.photoURL,
-                      displayName: opsDataParsed.displayName
+                      photoURL: samtalerDataParsed.photoURL,
+                      displayName: samtalerDataParsed.displayName
                     };
                   });
                 })
