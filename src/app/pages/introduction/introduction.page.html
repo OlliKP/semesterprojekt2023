@@ -19,14 +19,67 @@
       <img class="profile-img" src="{{user.photoURL}}" alt="" />
       <h1>Hej {{user.displayName}}</h1>
     </swiper-slide>
-    <swiper-slide><h1>Mere introduktion her</h1></swiper-slide>
-    <swiper-slide><h1>og lidt mere info her</h1></swiper-slide>
+
     <swiper-slide>
-      <h1>Lad os finde nogle nye Buddys!</h1>
+      <h2>Velkommen til <span>Buddys</span></h2>
+      <h2>Vi vil hjælpe dig med at skabe nye sociale relationer!</h2>
+    </swiper-slide>
+
+    <swiper-slide>
+      <h2>På vores app møder man Buddys igennem <span>begivenheder</span></h2>
+      <h2>Du kan enten selv oprette, eller tilmelde dig eksisterende begivenheder</h2>
+    </swiper-slide>
+
+    <swiper-slide>
+      <h1>Her er et eksempel:</h1>
+      <ion-accordion-group class="acc-group" expand="inset">
+        <ion-accordion value="Titel" class="acc">
+          <ion-item class="acc-item" slot="header" color="light">
+            <img class="event-img" src="{{user.photoURL}}" alt="Profilbillede" />
+            <div class="text-item-div">
+              <h2 class="titel-item">Min Første Begivenhed</h2>
+              <h3 class="navn-item">{{user.displayName}}</h3>
+              <h4 class="dato-item">22/11/24</h4>
+            </div>
+            <div class="buddys-figurer">
+              <h5 class="antal-item">2-4</h5>
+              <img src="../../assets/grafik/buddys-figurer.svg" alt="Små buddys figurer" />
+            </div>
+          </ion-item>
+          <div class="div-content" slot="content">
+            <p class="p-margin-bottom"><b>Beskrivelse:</b></p>
+            <p class="beskrivelse-text">Jeg vil gerne møde nye Buddys!</p>
+            <div class="text-and-icon-container">
+              <div>
+                <p class="p-margin-bottom p-margin-top">
+                  <b>Lokation:</b> Din By
+                </p>
+                <p class="p-margin-bottom p-margin-top">
+                  <b>Kategori:</b> Socialt
+                </p>
+                <p class="p-margin-bottom p-margin-top">
+                  <b>Antal buddys:</b> 2-4
+                </p>
+              </div>
+              <div class="acc-icons-container">
+                <ion-icon class="acc-icon" color="warning" name="star-outline"></ion-icon>
+                <ion-button size="small">Tilmeld
+                  <ion-icon slot="end" size="small" name="mail-outline"></ion-icon>
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </swiper-slide>
+
+    <swiper-slide>
+      <h1>Lad os finde dig <br>nogle nye Buddys!</h1>
       <ion-button routerLink="/tabs" class="get-started"
-        >Kom igang!</ion-button
+        >Kom i gang!</ion-button
       >
     </swiper-slide>
+
   </swiper-container>
 
   <ion-buttons class="arrows">
